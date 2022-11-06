@@ -1,0 +1,136 @@
+# ===================== Python =============================
+
+# Calculates an approximation to Zeta(2) with n exact 
+# decimal places.
+# Goes back to ideas of A. A. Markoff 1890.
+
+from codetiming import Timer
+from decimal import Decimal, getcontext
+
+
+@Timer()
+def zeta2(n: int) -> Decimal:
+    getcontext().prec = n
+
+    q = Decimal(0); s = Decimal(0); w = Decimal(1)
+    v = Decimal(4); e = Decimal(8); t = Decimal(12)
+    for k in range(2, (7 * n) // 2 + 1, 2):
+        w *= v
+        w /= k
+        q += v
+        v += e
+        s += 1 / (w * q)
+    return t * s
+
+zeta2(2000)
+
+# Elapsed time: 0.6278 seconds
+
+# Moritz Firsching uses a BBP Degree 2 binary formula for 
+# Pi^2 and uses Formula (27) in David H. Bailey's compendium:
+# https://www.davidhbailey.com/dhbpapers/bbp-formulas.pdf
+# https://mathstodon.xyz/@MoritzFirsching/109293147538858615
+# https://gist.github.com/mo271/5224cd4e514a1b76ca6eeea5d7ca2b3d
+
+@Timer()
+def BBPzeta2(n: int) -> Decimal:
+    getcontext().prec = n
+
+    s = Decimal(0); f = Decimal(1)
+
+    for k in range(int(n * 0.5536546824812272) + 1):
+        sixk = Decimal(6 * k)
+        s += f * ( Decimal(16) / (sixk + 1) ** 2 
+                 - Decimal(24) / (sixk + 2) ** 2 
+                 - Decimal(8)  / (sixk + 3) ** 2 
+                 - Decimal(6)  / (sixk + 4) ** 2 
+                 + Decimal(1)  / (sixk + 5) ** 2
+                 )
+        f *= Decimal(1) / Decimal(64)
+    return Decimal(3) / Decimal(16) * s
+
+BBPzeta2(2000)   
+
+# Elapsed time: 0.3496 seconds
+
+# ===================== Julia =============================
+
+# Calculate an approximation to Zeta(2) with prec exact decimal places.
+# Goes back to ideas of A. A. Markoff 1890.
+
+using BenchmarkTools
+using Nemo
+
+
+function zeta2(prec) 
+    RR = RealField(6666)
+
+    q = RR(0); s = RR(0); w = RR(1)
+    v = RR(4); e = RR(8); t = RR(12)
+
+    for k in 2:2:div(7 * prec, 2)
+        w *= v
+        w /= k
+        q += v
+        v += e
+        s += 1 / (w * q)
+    end
+    return t * s
+end
+
+@btime zeta2(2000)
+
+# ends with  ...722995635142812811 +/- 6.75e-2003
+# 39.38 ms (28013 allocations: 1.71 MiB)
+
+# -------------------------------------------------
+# Uses Formula (27) in David H. Bailey's compendium:
+# https://www.davidhbailey.com/dhbpapers/bbp-formulas.pdf
+
+function BBPzeta2(prec)
+    RR = RealField(6666)
+    
+    s = RR(0); f = RR(1)
+
+    for k in 0:floor(prec * 0.5536546824812272 + 1)
+        sixk = RR(6 * k)
+        s += f * ( RR(16) / (sixk + 1) ^ 2 
+                 - RR(24) / (sixk + 2) ^ 2 
+                 - RR(8)  / (sixk + 3) ^ 2 
+                 - RR(6)  / (sixk + 4) ^ 2 
+                 + RR(1)  / (sixk + 5) ^ 2
+                 )
+        f *= RR(1) / RR(64)
+    end
+    return RR(3) / RR(16) * s
+end
+
+@btime BBPzeta2(2000) 
+
+# ends with  ...722995635142812811 +/- 4.50e-2003]   
+# 14.348 ms (47697 allocations: 2.30 MiB)
+
+
+# ===================== Maple =============================
+
+# See https://oeis.org/A013661 and
+# https://mathstodon.xyz/@3j0hn/109294473397376967
+
+zeta2 := proc(prec) 
+local q, s, w, v, e, t, k; 
+Digits := prec + 10;
+q := 0.; s := 0.; w := 1.; 
+v := 4.; e := 8.; t := 12.;
+for k from 2 by 2 to ceil((7*prec)/2) do
+    w := w * v;
+    w := w / k;
+    q := q + v;
+    v := v + e;
+    s := s + 1 / (w * q);
+od; 
+evalf[prec](t * s) end:
+
+ans := CodeTools:-Usage(zeta2(2000));
+
+# memory used=56.85MiB, cpu time=218.00ms, real time=247.00ms, gc time=31.25ms
+# ends with ...722995635142813
