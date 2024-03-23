@@ -1,0 +1,498 @@
+\documentclass[leqno,hidelinks,a4paper]{article}
+\usepackage{enumerate}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[german,english]{babel}
+
+\usepackage{microtype}
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0,0,.7}
+\definecolor{ultrav}{rgb}{0.5,0,1}
+
+\hypersetup{colorlinks,
+            breaklinks,
+            linkcolor=ultrav,
+            urlcolor=darkblue,
+            anchorcolor=darkblue,
+            citecolor=darkblue}
+
+\newtheoremstyle{}
+ {}%space above
+ {}%space below
+ {}%body font
+ {}%Indent amount
+ {\bfseries}%Theorem head font
+ {}%Punctuation after theorem head
+ {.5em}%Space after theorem head
+ {#1.#2.~\thmnote{#3.}
+}%Theorem head spec
+\swapnumbers
+
+\theoremstyle{definition}
+
+\newtheorem{sat}{\protect\satname}
+\newtheorem{tef}[sat]{\protect\tefname}
+
+\newcommand{\satname}{}
+\newcommand{\tefname}{}
+
+\addto\captionsgerman{%
+  \renewcommand{\satname}{\hspace{-4pt}. Satz}%
+  \renewcommand{\tefname}{\hspace{-4pt}. Definition}%
+}
+
+\addto\captionsenglish{%
+  \renewcommand{\satname}{\hspace{-4pt}. Theorem}%
+  \renewcommand{\tefname}{\hspace{-4pt}. Definition}%
+}
+
+\newcommand\Beweis{\newline $ \phantom{'.'} \rhd \ $}%
+\newcommand\Prof{ $ \phantom{'.'} \rhd \ $}%
+
+% From https://narkive.com/P4sNM0k5:7.443.63
+\newcommand\TeilVon{\mathrel{\raisebox{0.45ex}{$\mathfrak{3}$}}}
+\newcommand{\partof}{\in}
+
+\pagestyle{myheadings}
+\markright{Dedekind, Second definition of the finite and infinite\hfill}
+
+\usepackage{paracol}
+\usepackage[landscape, total={8in, 8in}]{geometry}
+
+% \usepackage{showframe}
+% \setcounter{page}{451}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+\title{Zweite Definition des Endlichen und Unendlichen.}
+\author{Richard Dedekind}
+\date{1889. 3. 9. / \phantom{} 9th March 1889}% \date{9th March 1889}
+\maketitle
+
+\thispagestyle{empty}
+
+\begin{paracol}{2} % specify two columns...
+
+\selectlanguage{german}
+
+\noindent Zuerst veröffentlicht in der zweiten Auflage (1893) der Schrift
+\textit{``Was sind und was sollen die Zahlen?''} Seite XVII, in der Form:%
+
+\begin{quote}
+Ein System $S$ heißt endlich, wenn es sich so in sich selbst abbilden
+lässt, dass kein echter Teil von $S$ in sich selbst abgebildet
+wird; im entgegengesetzten Fall heißt $S$ ein unendliches System.
+\end{quote}
+
+Verfolgung dieser Definition eines endlichen Systems $S$
+\emph{ohne Benutzung der natürlichen Zahlen}.
+
+Es sei $\varphi$ eine Abbildung von $S$ in sich selbst, durch welche kein echter
+Teil von $S$ in sich selbst abgebildet wird.
+Kleine lateinische Buchstaben  $a, b \ldots z$ bedeuten immer \emph{Elemente} von
+$S$, große lateinische Buchstaben $A, B \ldots Z$ bedeuten \emph{Teile} von $S$;
+die durch $\varphi$ erzeugten Bilder von $a, A$ werden resp. mit $a', A'$ bezeichnet.
+
+Dass $A$ \emph{Teil von} $B$ ist, wird durch $A \TeilVon B$ ausgedrückt. Das aus den
+Elementen $a, b, c, \ldots $ bestehende System wird mit $[a, b, c \ldots]$ bezeichnet.
+
+Es ist also
+\begin{equation}\label{geq1}
+				S' \TeilVon S
+\end{equation}
+und% \marginpar{\textit{Die Definition des Endlichen.}}
+\begin{equation}\label{geq2}
+		\text{aus } A' \TeilVon A \text{ folgt } A = S.
+\end{equation}
+
+\begin{sat}\label{gthm1}$S' = S$.
+\Beweis
+Jedes Element von $S$ ist Bild von (mindestens) einem Element $r$ von $S$. Denn
+aus \eqref{geq1} folgt $(S')' \TeilVon S'$, also nach \eqref{geq2} unser Satz.
+\end{sat}
+Jedes aus einem einzigen Element $s$ bestehende System $[s]$ ist endlich, weil
+es keinen echten Teil besitzt und durch die identische Abbildung in sich selbst
+abgebildet wird. Dieser Fall wird im folgenden \emph{ausgeschlossen}, $S$ bedeutet
+ein endliches System, das \emph{nicht} aus einem einzigen Element besteht.
+
+\smallskip
+
+\begin{sat}\label{gthm2}
+Jedes Element $s$ ist verschieden von seinem Bilde $s'$, in Zeichen: $s \neq s'$.
+\Beweis
+Denn wäre $s = s'$, so wäre $[s]' = [s'] = [s] \TeilVon [s]$, nach \eqref{geq2}
+auch $[s] = S$ im Widerspruch zu unserer Annahme über $S$.
+\end{sat}
+
+\newpage
+
+\begin{tef}\label{gdef3}
+Ist $s$ ein bestimmtes Element von $S$ so soll mit $H_s$ jeder solche Teil von
+$S$ bezeichnet werden, der den beiden folgenden Bedingungen genügt:
+\begin{enumerate}[I.]
+\item $s$ ist Element von $H_s$, also $[s] \TeilVon H_s$, also auch
+\[
+	[s] + H_s = H_s.
+\]
+\item Ist $h$ ein von $s$ verschiedenes Element von $H_s$, so ist auch $h'$
+Element von $H_s$; ist also $H \TeilVon H_s$, aber $s$ nicht in $H$ enthalten,
+so ist $H' \TeilVon H_s$.
+\end{enumerate}
+\end{tef}
+
+\begin{sat}\label{gthm4}
+$S$ und $[s]$ sind spezielle Systeme $H_s$, und $[s]$ ist der Durchschnitt
+(die Gemeinheit) aller dem Elemente $s$ entsprechenden Systeme $H_s$.
+\Beweis Offenbar.
+\end{sat}
+
+\begin{sat}\label{gthm5}
+$H_s = S$ oder \textit{echter} Teil von $S$, je nachdem $s'$ in $H_s$ liegt oder nicht.
+\Beweis
+Denn wenn $s'$ in $H_s$ liegt, so folgt aus (\ref{gdef3}.II), dass $H'_s \TeilVon H_s$,
+also nach \eqref{geq2}, dass $H_s = S$ ist; und umgekehrt, wenn $H_s = S$, so liegt
+auch $s'$ in $H_s$.
+\end{sat}
+
+\begin{sat}\label{gthm6}
+Ist $H_s$ \emph{echter} Teil von $S$, so ist $s'$ das einzige Element von $H'_s$,
+das außerhalb $H_s$ liegt.
+\Beweis
+Denn jedes Element $k$ von $H'_s$ ist Bild $h'$ von mindestens einem Element $h$
+in $H_s$; ist nun $k=h'$ verschieden von $s'$, so ist auch $h$ verschieden von $s$,
+und folglich nach (\ref{gdef3}.II) liegt $k = h'$ in $H_s$, während das Element $s'$
+von $H'_s$ nach (\ref{gthm5}) außerhalb $H_s$ liegt.
+\end{sat}
+
+\begin{sat}\label{gthm7}
+Jedes System $H'_s$ ist ein System $H_{s'}$, das heißt (Definition (\ref{gdef3})):
+\begin{enumerate}[I'.]
+    \item $s'$ ist Element von $H'_s$.
+    \item Ist $k$ ein von $s'$ verschiedenes Element von $H'_s$, so liegt auch $k'$ in $H'_s$.
+\end{enumerate}
+\Prof
+Das Erste folgt daraus, dass $s$ in $H_s$ liegt, das Zweite daraus,
+dass nach Satz (\ref{gthm6}) $k$ in $H_s$ liegt.
+\end{sat}
+
+\begin{sat}\label{gthm8}
+Sind $A$, $B$, $C$ \ldots\ spezielle, demselben $s$ entsprechende Systeme $H_s$,
+so ist auch ihr Durchschnitt $H$ ein System $H_s$.
+\Beweis
+Denn zufolge (\ref{gdef3}.I) ist $s$ gemeinsames Element von $A, B, C, \ldots$,
+also auch Element von $H$. Ist ferner $h$ ein von $s$ verschiedenes Element von
+$H$, so ist zufolge (\ref{gdef3}.II) das Bild $h'$ Element von $A$, von $B$, von
+$C$, \ldots, also auch von $H$. Mithin erfüllt $H$ die beiden für jedes $H_s$
+charakteristischen Bedingungen I, II in (\ref{gdef3}).
+\end{sat}
+
+\begin{tef}\label{gdef9}
+Sind $a$, $b$ bestimmte Elemente von $S$, so soll das Symbol $ab$ den Durchschnitt
+aller derjenigen Systeme $H_b$ bedeuten (\emph{Strecke} $ab$), welche (wie z. B. $S$)
+das Element $a$ enthalten.
+\end{tef}
+
+\newpage
+
+\begin{sat}\label{gthm10}
+$a$ ist Element von $ab$, d. h. $[a] \TeilVon ab$.
+\Beweis
+Denn $ab$ ist der Durchschnitt von lauter solchen Systemen $H_b$ in denen $a$
+liegt. (a \emph{Anfang} von $ab$.)
+\end{sat}
+
+\begin{sat}\label{gthm11}
+$ab$ ist ein System $H_b$, d. h. $[b] \TeilVon ab$, und wenn $s$ ein von $b$
+verschiedenes Element von $ab$ ist, so ist $[s'] \TeilVon ab$.
+\Beweis
+Dies folgt aus (\ref{gthm8}).
+\end{sat}
+
+Also $b$ Element (\emph{Ende}) von $ab$. Ist $H \TeilVon ab$, aber $b$ nicht in
+$H$ enthalten, so ist $H' \TeilVon ab$.
+
+\begin{sat}\label{gthm12}
+Aus $[a] \TeilVon H_b$ folgt $ab \TeilVon H_b$.
+\Beweis
+Unmittelbare Folge von (\ref{gdef9}).
+\end{sat}
+
+\begin{sat}\label{gthm13}
+$aa = [a]$.
+\Beweis
+Dies folgt aus (\ref{gthm4}), weil $aa$ der Durchschnitt aller $H_a$  ist, die
+ja alle das Element $a$ enthalten nach (\ref{gdef3}.I).
+\end{sat}
+
+\begin{sat}\label{gthm14}
+Ist $b'$ Element von $ab$, so ist $ab = S$.
+\Beweis
+Dies folgt aus (\ref{gthm11}) und (\ref{gthm5}).
+\end{sat}
+
+\begin{sat}\label{gthm15}
+$b' b = S$.
+\Beweis
+Dies folgt aus (\ref{gthm14}) und (\ref{gthm10}).
+\end{sat}
+
+\begin{sat}\label{gthm16}
+Ist $c$ Element von $ab$, so ist $cb \TeilVon ab$.
+\Beweis
+Dies folgt aus (\ref{gthm12}), denn $ab$ ist ein $H_b$,
+(nach \ref{gthm11}), welches das Element $c$ enthält.
+\end{sat}
+
+\begin{sat}\label{gthm17}
+Bedeutet $A + B$ das aus $A, B$ zusammengesetzte System, so ist
+\[
+	a'b + b'a = S.
+\]
+\vspace*{-16pt}%
+\Beweis
+Denn wenn $s$ Element von $a'b$, so ist $s'$ in $b'a$ oder $a'b$
+enthalten, je nachdem $s = b$ oder verschieden von $b$ (zufolge (\ref{gthm10})
+oder ~(\ref{gthm11}) und (\ref{gdef3}.II)), und ebenso, wenn $s$ Element von
+$b'a$, so ist $s'$ in $a'b$ oder $b'a$ enthalten; also ist
+$(a'b + b'a)' \TeilVon a'b + b'a$; hieraus folgt der Satz nach \eqref{geq2}.
+\end{sat}
+
+\begin{sat}\label{gthm18}
+Ist $a$ verschieden von $b$, so ist $ab = [a] + a'b$.
+\Beweis
+Denn da $a$ ein von $b$ verschiedenes Element von $ab$ ist, so ist $a'$ Element
+von $ab$ (\ref{gthm10}, \ref{gthm11}), und folglich (\ref{gthm16}) ist
+$a'b \TeilVon ab$; da ferner (\ref{gthm10}) auch $[a] \TeilVon ab$, mithin
+\[
+	[a] + a'b \TeilVon ab.
+\]
+Ferner: jedes von $b$ verschiedene Element $s$ von $[a] + a'b$ ist entweder
+$= a$ oder ein von $b$ verschiedenes Element von $a'b$, in beiden Fällen ist
+$s'$ (nach (\ref{gthm10}), (\ref{gthm11})) Element von $a'b$, also auch von
+$[a]+ a'b$, und da (\ref{gthm11}) auch $[b] \TeilVon [a] + a'b$, so ist
+$[a] + a'b$ ein System $H_b$; da endlich auch $[a] \TeilVon [a] + a'b$, so ist
+(\ref{gthm12}) auch
+\[
+	ab \TeilVon [a] + a' b.
+\]
+Aus der Vergleichung beider Resultate folgt der Satz.
+\end{sat}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\switchcolumn
+\selectlanguage{english}
+
+% \marginpar{\textit{What are numbers, and what is their purpose?}}
+\noindent First published in the second edition (1893) of the text
+\textit{``Was sind und was sollen die Zahlen?''} page XVII, in the form:%
+
+\begin{quote}
+A system $S$ is called finite if it can be mapped into itself in such a way that
+no proper part of $S$ is mapped into itself; in the opposite case, $S$ is called
+an infinite system.
+\end{quote}
+
+Pursuing this definition of a finite system $S$ \emph{without using the natural numbers}.
+
+Let $\varphi$ be a mapping of $S$ into itself, which maps no proper part of $S$
+into itself. Small Latin letters $a, b \ldots z$ always mean \emph{elements} of
+$S$, capital Latin letters $A, B \ldots Z$ mean \emph{parts} of $S$. The images
+of $a, A$ generated by $\varphi$ are respectively denoted by $a', A'$.
+\ \\
+
+That $A$ is \emph{part of} $B$ is expressed by $A \partof B$. The system consisting
+of the elements $a, b, c, \ldots$ is denoted by $[a, b, c, \ldots]$.
+\ \\
+
+This gives
+\begin{equation}\label{eq1}
+				S' \partof S
+\end{equation}
+and % \marginpar{\textit{The definition of finiteness.}}
+\begin{equation}\label{eq2}
+		\text{from } A' \partof A \text{ it follows that } A = S.
+\end{equation}
+
+
+\begin{sat}\label{thm1}$S' = S$.
+\Beweis
+Every element of $S$ is an image of (at least) one element $r$ of $S$. Because
+from \eqref{eq1} it follows $(S')' \partof S'$, hence by \eqref{eq2}, our proposition.
+\end{sat}
+Every system $[s]$ consisting of a single element $s$ is finite because it has
+no proper part and is mapped into itself by the identity function. This case is
+\emph{excluded} in the following; $S$ means a finite system that does \emph{not}
+consist of a single element.
+\smallskip
+
+\begin{sat}\label{thm2}
+Every element $s$ is different from its image $s'$, in symbols: $s \neq s'$.
+\Beweis
+Because if $s = s'$, then $[s]' = [s'] = [s] \partof [s]$, so according to
+\eqref{eq2}, also $[s] = S$ in contradiction to our assumption about $S$.
+\end{sat}
+
+\newpage
+
+\begin{tef}\label{def3}
+If $s$ is a certain element of $S$, then $H_s$ shall denote any part of $S$ that
+satisfies the following two conditions:
+\vspace{8pt} %\ \\%
+
+\begin{enumerate}[I.]
+\item $s$ is element of $H_s$, so $[s] \partof H_s$, also
+\[
+	[s] + H_s = H_s.
+\]
+\item If $h$ is an element of $H_s$ different from $s$, then $h'$ is also an
+element of $H_s$. So if $H \partof H_s$, but $s$ is \emph{not contained} in H,
+then $H' \partof H_s$.
+\end{enumerate}
+\end{tef}
+
+\begin{sat}\label{thm4}
+$S$ and $[s]$ are special systems $H_s$, and $[s]$ is the \emph{intersection}
+(the common) of all systems $H_s$ corresponding to the element $s$.
+\Beweis Obvious. \end{sat}
+
+\begin{sat}\label{thm5}
+$H_s = S$ or $H_s$ is a \textit{proper} part of $S$, depending on whether  $s'$
+lies in $H_s$ or not.
+\Beweis
+For if $s'$ lies in $H_s$, then it follows from (\ref{def3}.II) that
+$H'_s \partof H_s$, therefore by \eqref{eq2} that $H_s = S$. Conversely, if
+$H_s = S$, then $s'$ also lies in $H_s$.
+\end{sat}
+
+\begin{sat}\label{thm6}
+If $H_s$ is a \emph{proper} part of $S$, then $s'$ is the only element of $H'_s$
+that lies outside $H_s$.
+\Beweis
+This is because every element $k$ of $H'_s$ is the image $h'$ of at least one
+element $h$ in $H$. If $k=h'$ is different from $s'$, then $h$ is also different
+from $s$, and consequently by (\ref{def3}.II) $k = h'$ lies in $H_s$, while the
+element $s'$ of $H'_s$ by (\ref{thm5}) lies outside $H_s$.
+\end{sat}
+
+\begin{sat}\label{thm7}
+Every system $H'_s$ is a system $H_{s'}$, that is (by definition 3.):
+\begin{enumerate}[I'.]
+	\item $s'$ is element of $H'_s$
+	\item If $k$ is an element of $H'_s$ that is different from $s'$, then $k'$
+    also lies in $H'_s$.
+\end{enumerate}
+\Prof
+The first follows from the fact that $s$ lies in $H_s$, the second from the fact
+that $k$ lies in $H_s$ by (\ref{thm6}).
+\end{sat}
+
+\begin{sat}\label{thm8}
+If $A$, $B$, $C$ \ldots\ are special systems $H_s$ corresponding to the same $s$,
+then their intersection $H$ is also a system $H_s$.
+\Beweis
+Because according to (\ref{def3}.I) $s$ is a common element of $A, B, C, \ldots$,
+thus also an element of $H$. If $h$ is an element of $H$ that is different from
+$s$, then, by  (\ref{def3}.II), the image $h'$ is an element of $A$, of $B$, of
+$C$, \ldots, and therefore also of $H$. $H$ thus fulfills the two conditions I
+and II in definition (\ref{def3}) that are characteristic of every $H_s$.
+\end{sat}
+
+\begin{tef}\label{def9}
+If $a$, $b$ are certain elements of $S$, then the symbol $ab$ (\emph{section} $ab$)
+should mean the intersection of all those systems $H_b$ which (such as $S$)
+contain the element $a$.%
+\end{tef}
+
+\newpage
+
+\begin{sat}\label{thm10}
+$a$ is an element of $ab$, i.e., $[a] \partof ab$.
+\Beweis
+This is because $ab$ is the intersection of all systems $H_b$ in which $a$ lies.
+(So a is the \emph{start} of ab.)
+\end{sat}
+
+\begin{sat}\label{thm11}
+$ab$ is a system $H_b$, i.e. $[b] \partof ab$, and if $s$ is an element of $ab$
+different from $b$, then $[s'] \partof ab$.
+\Beweis
+This follows from (\ref{thm8}).
+\end{sat}
+
+So $b$ is an element (the \emph{end}) of $ab$. If $H \partof ab$ but $b$ is not
+contained in $H$, then $H' \partof ab$.
+
+\begin{sat}\label{thm12}
+From $[a] \partof H_b$, follows from $ab \partof H_b$.
+\Beweis
+Immediate consequence of definition (\ref{def9}).
+\end{sat}
+
+\begin{sat}\label{thm13}
+$aa = [a]$.
+\Beweis
+This follows from (\ref{thm4}), because $aa$ is the intersection of all $H_a$
+that contain the element $a$ according to (\ref{def3}.I).
+\end{sat}
+
+\begin{sat}\label{thm14}
+If $b'$ is an element of $ab$, then $ab = S$.
+\Beweis
+This follows from (\ref{thm11}) and (\ref{thm5}).
+\end{sat}
+
+\begin{sat}\label{thm15}
+$b' b = S$.
+\Beweis
+This follows from (\ref{thm14}) and (\ref{thm10}).
+\end{sat}
+
+\begin{sat}\label{thm16}
+If $c$ is an element of $ab$, then $cb \partof ab$.
+\Beweis
+This follows from (\ref{thm12}), since $ab$ is an $H_b$ by (\ref{thm11}), that
+contains the element $c$.
+\end{sat}
+
+\begin{sat}\label{thm17}
+If $A + B$ means the system composed of $A, B$, then
+\[
+	a'b + b'a = S.
+\]
+\vspace*{-16pt}%
+\Beweis
+Because if $s$ is an element of $a'b$, then $s'$ is contained in $b'a$ or $a'b$,
+depending on $s = b$ or different from $b$ (according to (\ref{thm10}) or
+(\ref{thm11}) and (\ref{def3}.II)), and likewise if $s$ is an element of $b'a$,
+then $s'$ is contained in $a'b$ or $b'a$; therefore $(a'b + b'a)' \partof a'b + b'a$.
+This leads to the theorem according to \eqref{eq2}.
+\end{sat}
+
+\begin{sat}\label{thm18}
+If $a$ is different from $b$, then $ab = [a] + a'b$.
+\Beweis
+For since $a$ is an element of $ab$ different from $b$, then $a'$ is an element
+of $ab$ (by \ref{thm10}, \ref{thm11}), and consequently (by \ref{thm16})
+$a'b \partof ab$; since furthermore, by (\ref{thm10}), we also have $[a]
+\partof ab$, therefore
+\[
+	[a] + a'b \partof ab.
+\]
+Also, every element $s$ of $[a] + a'b$ that is different from $b$ is either
+$= a$ or an element of $a'b$ that is different from $b$. Thus in both cases $s'$
+is (by (\ref{thm10}), (\ref{thm11})) an element of $a'b$, therefore also of
+$[a]+ a'b$, and since by (\ref{thm11}) also $[b] \partof [a] + a'b$, it follows
+that $[a] + a'b$ is a system $H_b$. Finally, since $[a] \partof [a] + a'b$, by
+(\ref{thm12}) also
+\[
+	ab \partof [a] + a' b.
+\]
+The theorem follows from the comparison of both results.
+\end{sat}
+
+\end{paracol}
+\end{document}
