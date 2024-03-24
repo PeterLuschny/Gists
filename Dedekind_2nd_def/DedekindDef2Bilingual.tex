@@ -53,7 +53,7 @@
     \renewcommand{\hilfssatzname}{Lemma}%
 }
 
-\newcommand\Beweis{\newline $ \phantom{'.'} \rhd \ $}%
+\newcommand\Beweis{\medskip \newline $ \phantom{'.'} \rhd \ $}%
 \newcommand\beweis{ $ \phantom{'.'} \rhd \ $}%
 
 % From https://narkive.com/P4sNM0k5:7.443.63
@@ -248,7 +248,7 @@ Dies folgt aus (\ref{gthm14}) und (\ref{gthm10}).
 Ist $c$ Element von $ab$, so ist $cb \TeilVon ab$.
 \Beweis
 Dies folgt aus (\ref{gthm12}), denn $ab$ ist ein $H_b$,
-(nach \ref{gthm11}), welches das Element $c$ enthält.
+(nach (\ref{gthm11})), welches das Element $c$ enthält.
 \end{satz}
 
 \begin{satz}\label{gthm17}
@@ -286,7 +286,91 @@ $[a] + a'b$ ein System $H_b$; da endlich auch $[a] \TeilVon [a] + a'b$, so ist
 Aus der Vergleichung beider Resultate folgt der Satz.
 \end{satz}
 
+\newpage
+
+\begin{satz}\label{gthm19}
+Sind $a, b$ verschiedene Elemente von $S$, so liegt $a$ außerhalb $a'b$,
+und $b$ liegt außerhalb $b'a$.
+\Beweis
+Nimmt man nämlich das Gegenteil an, es gebe ein von $b$ verschiedenes
+Element $a$, das in $a'b$ liegt, und bezeichnet mit $A$ das System aller
+solcher Elemente $a$, so ergibt sich folgendes.
+
+Setzt man $a' = s$, so liegt $a$ in $sb$, und da $a$ verschieden von $b$ ist, also
+(nach (\ref{gthm13})) nicht in $bb$ liegt, so ist $s$ verschieden von $b$, und
+hieraus folgt (nach (\ref{gthm18})), dass $sb = [s] + s'b$ ist. Da ferner $a$
+(nach (\ref{gthm2})) verschieden von $s$ ist und in $sb$ liegt, so muss $a$ in
+$s'b$ liegen, und hieraus folgt wieder (nach (\ref{gthm1})), dass auch $s$
+(als Bild $a'$) in $s'b$ liegt.
+
+Mithin ist das Bild $a'$ eines jeden Elementes $a$ von $A$ ebenfalls in $A$
+enthalten, also $A' \TeilVon A$. Da aber hieraus $a = S$ folgen würde, während
+doch $A$ das Element $b$ nicht enthält, so ist unsere Annahme unzulässig, also
+der Satz wahr, w.z.b.w.
+
+Der zweite Teil folgt durch Vertauschung von $a$ mit $b$.%
+\end{satz}
+
+\begin{satz}\label{gthm20}
+Sind $a, b$ verschieden, so haben die Strecken $a'b, b'a$ kein gemeinsames
+Element.
+\Beweis
+Nimmt man nämlich das Gegenteil an, es gebe ein gemeinsames Element
+$m\,$ von $a'b\,$, $b'a\,$, so folgt aus dem vorhergehenden Satz
+(\ref{gthm19}~), dass $m$ verschieden von $b$ und von $a$ ist; mithin muss
+(\ref{gthm11}) das Bild $m'$ ebenfalls gemeinsames Element von $a'b$ und $b'a$ sein.
+
+Bezeichnet man daher
+mit $M$ das System aller solcher Elemente $m$, so ist $M' \TeilVon M$, also
+$M = S$. Dies ist aber unmöglich, weil $a, b$ Elemente von $S$, aber nicht
+Elemente von $M$ sind. Also ist unser Satz wahr.
+\end{satz}
+
+\begin{satz}\label{gthm21}
+Sind $a, b$ verschieden, so sind auch die Bilder $a', b'$ verschieden.
+\Beweis
+Denn sonst hätten die Strecken $a'b, b'a$ ein gemeinsames Element $a' = b'$, weil
+$a'$ (nach (\ref{thm10})) Element von $a'b$ und $b'$ Element von $b'a$ ist.
+\end{satz}
+
+\begin{satz}\label{gthm22}
+Aus $cb = S$ folgt $c = b'$.
+\Beweis
+Es gibt (nach (\ref{thm1}) und (\ref{thm21})) in $S$ ein und nur ein Element $a$,
+welches der Bedingung $a' = c$ genügt, und es ist also $a'b = S$, mithin $[a] \TeilVon a'b$;
+es muss daher (\ref{gthm19}) $a = b$, also $c = b'$ sein, w.z.b.w.
+\end{satz}
+
+\begin{satz}\label{gthm23}
+Sind $a, b$ verschieden, so ist jedes Element von $S$ in einer und nur einer
+der Strecken $a'b, b'a$ enthalten.
+\Beweis
+Dies folgt aus (\ref{thm17}) und (\ref{thm20}).
+\end{satz}
+
+\begin{satz}\label{gthm24}
+Sind $a,\, b,\, c$ verschieden, so haben die Strecken $b'c,\, c'a$, $a'b$ kein
+gemeinsames Element, und dasselbe gilt von den Strecken $a'c,\, b'a,\, c'b$.
+\ \\
+
+\noindent \beweis
+Denn die gegenteilige Annahme, es gebe ein den Strecken $b'c,\, c'a,\, a'b$
+gemeinsames Element $m$, führt zu einem Widerspruch. Es sei $M$ das System aller
+solcher Elemente. Da (nach (\ref{gthm19})) $a$ nicht in $a'b$, $ b$ nicht in
+$b'c$, $c$ nicht in $c'a$ liegt, so ist $m$ verschieden von $c, a, b$, und folglich
+(\ref{thm11}) ist $m'$ ebenfalls gemeinsames Element von $b'c,\, c'a,\, a'b$,
+also Element von $M$.
+
+Mithin ist $M' \TeilVon M$, also $M = S$. Dies ist aber unmöglich, weil $M$ keins
+der Elemente $a,\, b,\, c$ enthält. Also ist unser Satz wahr.
+
+Der zweite Teil ergibt sich aus dem ersten, wenn man $a$ mit $b$ vertauscht,
+wodurch die Annahme nicht geändert wird.
+\end{satz}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \switchcolumn
 \selectlanguage{english}
@@ -498,6 +582,89 @@ that $[a] + a'b$ is a system $H_b$. Finally, since $[a] \partof [a] + a'b$, by
 \]
 The theorem follows from the comparison of both results.
 \end{satz}
+
+\newpage
+
+\begin{satz}\label{thm19}
+If $a, b$ are different elements of $S$, then $a$ lies outside $a'b$, and $b$ lies
+outside $b'a$.
+\Beweis
+If one assumes the opposite, that there is an element $a$ that is different from
+$b$ and lies in $a'b$, and that $A$ denotes the system of all such elements $a$,
+the following holds.
+
+If one puts $a'=s$, then $a$ lies in $sb$, and since $a$ is different from $b$,
+and therefore (according to (\ref{thm13})) is not in $bb$, then $s$ is different
+from $b$, and from this it follows (according to \ref{thm18}) that $sb = [s] + s'b$.
+Furthermore, since $a$ (according to (\ref{thm2})) is different from $s$ and lies
+in $sb$, then $a$ must lie in $s'b$, and from this it follows (again according to
+(\ref{thm1})) that $s$ (as the image $a'$) also lies in $s'b$.%
+
+Therefore, the image $a'$ of every element $a$ of $A$ is also contained in $A$,
+i.e. $A' \partof A$. But since $A=S$ would follow from this, while $A$ does not
+contain the element $b$, our assumption is inadmissible, so the theorem is true,
+qed.
+
+The second part follows by exchanging $a$ with $b$.%
+\end{satz}
+
+\begin{satz}\label{thm20}
+If $a$, $b$ are different, then the segments $a'b$, $b'a$ have no common element.
+\Beweis
+If one assumes the opposite, that there is a common element $m$ of $a'b$, $b'a$,
+then it follows from the preceding Theorem \ref{thm19} that $m$ is different from
+$b$ and from $a$; therefore (according to \ref{thm11}) the image $m'$ must also be
+a common element of $a'b$ and $b'a$.%
+
+Therefore, if M denotes the system of all such elements $m$, then $M' \partof M$,
+thus $M=S$. But this is impossible because $a$, $b$ are elements of $S$ but not
+elements of $M$. So our theorem is true.%
+\ \\
+\end{satz}
+
+\begin{satz}\label{thm21}
+If $a$, $b$ are different, then the images $a'$, $b'$ are also different.
+\Beweis
+Otherwise the segments $a'b$, $b'a$ would have a common element $a'=b'$, because
+(according to \ref{thm10}) $a'$ is an element of $a'b$ and $b'$ is an element
+of $b'a$.%
+\end{satz}
+
+\begin{satz}\label{thm22}
+From $cb=S$ follows $c = b$.
+\Beweis
+There is (according to \ref{thm1} and \ref{thm21}) in $S$ one and only one element
+$a$ which satisfies the condition $a'=c$, and therefore $a'b = S$, therefore
+$[a] \partof a'b$; therefore (by \ref{thm19}) $a=b$, thus $c=b'$, qed.%
+\end{satz}
+
+\begin{satz}\label{thm23}
+If $a$, $b$ are different, then every element of $S$ is contained in one and only
+one of the segments $a'b$, $b'a$.
+\Beweis
+This follows from (\ref{thm17}) and (\ref{thm20}).
+\end{satz}
+
+\begin{satz}\label{thm24}
+If $a$, $b$, $c$ are different, then the segments $b'c$, $c'a$, $a'b$ have no
+common element, and the same applies to the segments $a'c$, $b'a$, $c'b$.
+\ \\
+
+\noindent \beweis
+Because the opposite assumption, that there is an element $m$ common to the segments
+$b'c$, $c'a$, $a'b$, leads to a contradiction. Let $M$ be the system of all such
+elements. Since (according to (\ref{thm19})) $a$ is not in $a'b$, $b$ is not in $b'c$,
+$c$ is not in $c'a$, then $m$ is different from $c$, $a$, $b$, and consequently
+(by \ref{thm11}) $m'$ is a common element of $b'c$, $c'a$, $a'b$, i.e. an element
+of $M$; therefore $M' \partof M$, hence  $M=S$.
+
+But this is impossible because $M$ does not contain any of the elements $a$, $b$,
+$c$. So our theorem is true.
+
+The second part results from the first if one swaps $a$ with $b$, which does not
+change the assumption.
+\end{satz}
+
 
 \end{paracol}
 \end{document}
