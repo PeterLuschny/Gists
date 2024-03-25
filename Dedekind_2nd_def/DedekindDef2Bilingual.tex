@@ -1,9 +1,10 @@
-\documentclass[leqno,hidelinks,a4paper]{article}
+\documentclass[leqno,hidelinks]{article}
 \usepackage[german,english]{babel}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{color,hyperref}
 \usepackage{enumerate}
 \usepackage{microtype}
+\linespread{1.25}
 
 \definecolor{darkblue}{rgb}{0,0,.7}
 \definecolor{ultrav}{rgb}{0.5,0,1}
@@ -60,14 +61,15 @@
 \newcommand\TeilVon{\mathrel{\raisebox{0.45ex}{$\mathfrak{3}$}}}
 \newcommand{\partof}{\in}
 
-\pagestyle{myheadings}
-\markright{Dedekind, Second definition of the finite and infinite\hfill}
+%\pagestyle{myheadings}
+%\markright{Dedekind, Second definition of the finite and infinite\hfill}
 
 \usepackage{paracol}
-\usepackage[landscape, total={8in, 8in}]{geometry}
+%\usepackage[landscape, total={8in, 8in}]{geometry}
+\usepackage[total={8in, 10in}]{geometry}
 
 % \usepackage{showframe}
-% \setcounter{origpage}{451}
+% \setcounter{page}{451}
 
 \begin{document}
 \hypersetup{pageanchor=false}
@@ -337,8 +339,8 @@ $a'$ (nach (\ref{thm10})) Element von $a'b$ und $b'$ Element von $b'a$ ist.
 Aus $cb = S$ folgt $c = b'$.
 \Beweis
 Es gibt (nach (\ref{thm1}) und (\ref{thm21})) in $S$ ein und nur ein Element $a$,
-welches der Bedingung $a' = c$ genügt, und es ist also $a'b = S$, mithin $[a] \TeilVon a'b$;
-es muss daher (\ref{gthm19}) $a = b$, also $c = b'$ sein, w.z.b.w.
+welches der Bedingung $a' = c$ genügt, und es ist also $a'b = S$, mithin
+$[a] \TeilVon a'b$; es muss daher (\ref{gthm19}) $a = b$, also $c = b'$ sein, w.z.b.w.
 \end{satz}
 
 \begin{satz}\label{gthm23}
@@ -351,9 +353,7 @@ Dies folgt aus (\ref{thm17}) und (\ref{thm20}).
 \begin{satz}\label{gthm24}
 Sind $a,\, b,\, c$ verschieden, so haben die Strecken $b'c,\, c'a$, $a'b$ kein
 gemeinsames Element, und dasselbe gilt von den Strecken $a'c,\, b'a,\, c'b$.
-\ \\
-
-\noindent \beweis
+\Beweis
 Denn die gegenteilige Annahme, es gebe ein den Strecken $b'c,\, c'a,\, a'b$
 gemeinsames Element $m$, führt zu einem Widerspruch. Es sei $M$ das System aller
 solcher Elemente. Da (nach (\ref{gthm19})) $a$ nicht in $a'b$, $ b$ nicht in
@@ -366,6 +366,53 @@ der Elemente $a,\, b,\, c$ enthält. Also ist unser Satz wahr.
 
 Der zweite Teil ergibt sich aus dem ersten, wenn man $a$ mit $b$ vertauscht,
 wodurch die Annahme nicht geändert wird.
+\end{satz}
+
+\begin{zusatz}\label{zusatz1}
+Setzt man (wie auch in dem folgenden (\ref{gthm25})):
+\[
+    A = c'b,\ B = a'c,\ C = b'a;\  A_1 = b'c,\ B_1 = c'a,\ C_1 = a'b,
+\]
+so ist $A - B - C = 0$\footnote{[Dabei bedeutet das Zeichen -- den Durchschnitt.]}
+(leer) und $A_1 - B_1 - C_1 = 0$ (leer) und (nach (\ref{gthm17}), (\ref{gthm20})) ist
+\begin{gather*}
+    S = A + A = B + B_1 = C + C_1; \\
+    \,0 = A - A_1 = B - B_1 = C - C_1.
+\end{gather*}
+Dies gilt auch dann (nach (\ref{gthm20})), wenn von den Elementen $a$, $b$, $c$
+wenigstens zwei verschieden sind.
+\end{zusatz}
+
+\begin{satz}\label{gthm25}
+Sind $a$, $b$, $c$ verschieden, so tritt einer und nur einer der beiden folgenden
+Fälle ein: Entweder ist
+\begin{gather*}
+    b'c = b'a + a'c, \quad c'a = c'b + b'a, \quad a'b = a'c + c'b \\
+    c'b = c'a - a'b, \quad a'c = a'b - b'c, \quad b'a = b'c - c'a
+\end{gather*}
+und jedes Element von $S$ liegt in einer, aber nur einer der Strecken
+$c'b$, $a'c$, $b'a$; oder es ist
+\begin{gather*}
+    c'b = c'a + a'b, \quad a'c = a'b + b'c, \quad b'a = b'c + c'a \\
+    b'c = b'a - a'c, \quad c'a = c'b - b'a, \quad a'b = a'c - c'b
+\end{gather*}
+und jedes Element von $S$ liegt in einer, aber nur einer der Strecken
+$b'c$, $c'a$, $a'b$.
+\Beweis
+Zufolge (\ref{gthm23}) liegt $c$ entweder in $a'b$ oder in $b'a$. Wir betrachten
+nur den ersten Fall, weil aus ihm der zweite durch Vertauschung von $a$ mit $b$
+hervorgeht. Da $c$ in $a'b$ liegt und von $b$ verschieden ist, so liegt
+(nach (\ref{gthm11})) auch $c'$ in $a'b$, und folglich (\ref{gthm16}) ist
+$c'b \TeilVon a'b$; hieraus folgt (nach \ref{gthm19}), dass $c'b$ mit $b'a$ kein
+gemeinsames Element hat; nun ist (mit \ref{gthm17}) $a'b + b'a = b'c + c'b$,
+mithin $b'a \TeilVon b'c$ und folglich (\ref{gthm11}) liegt $a$ in $b'c$.
+
+Aus der Annahme, dass $c$ in $a'b$ liegt, hat sich also ergeben: $c'b \TeilVon a'b$,
+$b'a \TeilVon b'c$, $a$ liegt in $b'c$. Auf dieselbe Weise ergeben sich aus dieser
+letzten Folgerung, wenn man $c$, $a$, $b$ in der Annahme resp. durch $a$, $b$, $c$
+ersetzt, wieder die Folgerungen $a'c \TeilVon b'c$, $c'b \TeilVon c'a$, $b$ liegt
+in $c'a$; und hieraus folgt abermals $b'a \TeilVon c'a$, $a'c \TeilVon a'b$ (und
+die erste Annahme: $c$ liegt in $a'b$).
 \end{satz}
 
 
@@ -449,17 +496,17 @@ $S$ and $[s]$ are special systems $H_s$, and $[s]$ is the \emph{intersection}
 \Beweis Obvious. \end{satz}
 
 \begin{satz}\label{thm5}
-$H_s = S$ or $H_s$ is a \textit{proper} part of $S$, depending on whether  $s'$
-lies in $H_s$ or not.
+$H_s = S$ or $H_s$ is a \textit{proper} part of $S$, depending on whether
+$s'$ lies in $H_s$ or not.
 \Beweis
 For if $s'$ lies in $H_s$, then it follows from (\ref{def3}.II) that
-$H'_s \partof H_s$, therefore by \eqref{eq2} that $H_s = S$. Conversely, if
-$H_s = S$, then $s'$ also lies in $H_s$.
+$H'_s \partof H_s$, therefore by \eqref{eq2} that $H_s = S$. Conversely,
+if $H_s = S$, then $s'$ also lies in $H_s$.
 \end{satz}
 
 \begin{satz}\label{thm6}
-If $H_s$ is a \emph{proper} part of $S$, then $s'$ is the only element of $H'_s$
-that lies outside $H_s$.
+If $H_s$ is a \emph{proper} part of $S$, then $s'$ is the only element of
+$H'_s$ that lies outside $H_s$.
 \Beweis
 This is because every element $k$ of $H'_s$ is the image $h'$ of at least one
 element $h$ in $H$. If $k=h'$ is different from $s'$, then $h$ is also different
@@ -548,11 +595,11 @@ contains the element $c$.
 \end{satz}
 
 \begin{satz}\label{thm17}
-If $A + B$ means the system composed of $A, B$, then
+If $A + B$ means the system composed of $A, B$, then one has
 \[
 	a'b + b'a = S.
 \]
-\vspace*{-16pt}%
+\vspace*{-18pt}%
 \Beweis
 Because if $s$ is an element of $a'b$, then $s'$ is contained in $b'a$ or $a'b$,
 depending on $s = b$ or different from $b$ (according to (\ref{thm10}) or
@@ -648,9 +695,7 @@ This follows from (\ref{thm17}) and (\ref{thm20}).
 \begin{satz}\label{thm24}
 If $a$, $b$, $c$ are different, then the segments $b'c$, $c'a$, $a'b$ have no
 common element, and the same applies to the segments $a'c$, $b'a$, $c'b$.
-\ \\
-
-\noindent \beweis
+\Beweis
 Because the opposite assumption, that there is an element $m$ common to the segments
 $b'c$, $c'a$, $a'b$, leads to a contradiction. Let $M$ be the system of all such
 elements. Since (according to (\ref{thm19})) $a$ is not in $a'b$, $b$ is not in $b'c$,
@@ -665,6 +710,54 @@ The second part results from the first if one swaps $a$ with $b$, which does not
 change the assumption.
 \end{satz}
 
+\begin{zusatz}\label{corollary1}
+If you put (as in the following \ref{thm25}):
+\[
+    A = c'b,\ B = a'c,\ C = b'a;\  A_1 = b'c,\ B_1 = c'a,\ C_1 = a'b,
+\]
+then $A - B - C = 0$\footnote{[The symbol -- means the intersection.]} (empty) and
+$A_1 - B_1 - C_1 = 0$ (empty) and (according to \ref{thm17}, \ref{thm20}) hence
+\begin{gather*}
+    S = A + A = B + B_1 = C + C_1; \\
+    \,0 = A - A_1 = B - B_1 = C - C_1.
+\end{gather*}
+This also applies (according to \ref{thm20}) if at least two of the elements
+$a$, $b$, $c$ are different.
+\end{zusatz}
+
+\begin{satz}\label{thm25}
+If $a$, $b$, $c$ are different, then one and only one of the following two
+cases occurs: Either
+\begin{gather*}
+    b'c = b'a + a'c, \quad c'a = c'b + b'a, \quad a'b = a'c + c'b \\
+    c'b = c'a - a'b, \quad a'c = a'b - b'c, \quad b'a = b'c - c'a
+\end{gather*}
+and each element of S lies in one, but only one, of the segments
+$c'b$, $a'c$, $b'a$; or
+\begin{gather*}
+    c'b = c'a + a'b, \quad a'c = a'b + b'c, \quad b'a = b'c + c'a \\
+    b'c = b'a - a'c, \quad c'a = c'b - b'a, \quad a'b = a'c - c'b
+\end{gather*}
+and each element of $S$ lies in one, but only one, of the segments
+$b'c$, $c'a$, $a'b$.
+\Beweis
+According to \ref{thm23}, $c$ lies either in $a'b$ or in $b'a$. We
+only consider the first case because the second arises from it by
+exchanging $a$ for $b$.
+Since $c$ is in $a'b$ and is distinct from $b$, then
+(according to \ref{thm11}) $c'$ also lies in $a'b$, and consequently
+(by \ref{thm16}) $c'b \partof a'b$; from this it follows (by \ref{thm19})
+that $c'b$ has no element in common with $b'a$; now (by \ref{thm17}) is
+$a'b+b'a=b'c+c'b$, therefore $b'a \partof b'c$, and consequently
+(by \ref{thm11}) $a$ is in $b'c$.
+
+From the assumption that $c$ lies in $a'b$, it follows: $c'b \partof a'b$,
+$b'a \partof b'c$, $a$ lies in $b'c$. In the same way, this last
+conclusion follows if one assumes $c$, $a$, $b$ replaced by $a$, $b$, $c$,
+respectively, again we have the consequences $a'c \partof bc$, $cb \partof c'a$,
+and that $b$ lies in $c'a$; and from this it follows again $b'a \partof c'a$,
+$a'c \partof a'b$ (and the first assumption: $c$ lies in $a'b$).
+\end{satz}
 
 \end{paracol}
 \end{document}
