@@ -172,8 +172,8 @@ das außerhalb $H_s$ liegt.
 \Beweis
 Denn jedes Element $k$ von $H'_s$ ist Bild $h'$ von mindestens einem Element $h$
 in $H_s$; ist nun $k=h'$ verschieden von $s'$, so ist auch $h$ verschieden von $s$,
-und folglich (nach \sref{gdef3}{\color{ultrav}.II)} liegt $k = h'$ in $H_s$, während das Element $s'$
-von $H'_s$ nach \sref{gthm5} außerhalb $H_s$ liegt.
+und folglich (nach \sref{gdef3}{\color{ultrav}.II)} liegt $k = h'$ in $H_s$,
+während das Element $s'$ von $H'_s$ nach \sref{gthm5} außerhalb $H_s$ liegt.
 \end{satz}
 
 \begin{satz}\label{gthm7}
@@ -191,11 +191,12 @@ dass nach Satz \sref{gthm6} $k$ in $H_s$ liegt.
 Sind $A$, $B$, $C$ \ldots\ spezielle, demselben $s$ entsprechende Systeme $H_s$,
 so ist auch ihr Durchschnitt $H$ ein System $H_s$.
 \Beweis
-Denn zufolge \sref{gdef3}{\color{ultrav}.I} ist $s$ gemeinsames Element von $A, B, C, \ldots$,
-also auch Element von $H$. Ist ferner $h$ ein von $s$ verschiedenes Element von
-$H$, so ist zufolge \sref{gdef3}{\color{ultrav}.II} das Bild $h'$ Element von $A$, von $B$, von
-$C$, \ldots, also auch von $H$. Mithin erfüllt $H$ die beiden für jedes $H_s$
-charakteristischen Bedingungen I, II in \sref{gdef3}.
+Denn zufolge \sref{gdef3}{\color{ultrav}.I} ist $s$ gemeinsames Element von
+$A, B, C, \ldots$, also auch Element von $H$. Ist ferner $h$ ein von $s$
+verschiedenes Element von $H$, so ist zufolge \sref{gdef3}{\color{ultrav}.II} das
+Bild $h'$ Element von $A$, von $B$, von $C$, \ldots, also auch von $H$. Mithin
+erfüllt $H$ die beiden für jedes $H_s$ charakteristischen Bedingungen I, II
+in \sref{gdef3}.
 \end{satz}
 
 \begin{deff}\label{gdef9}
@@ -482,6 +483,110 @@ aber unmöglich, weil $s$ (und ebenso $a$) außerhalb $H$ liegt. Mithin ist gewi
 $H_s= a's$, und $A = s'a$, w.z.b.w.
 \end{satz}
 
+\newpage
+
+\begin{satz}\label{gthm28}
+Der Durchschnitt von solchen Strecken $as$, $bs$, $\ldots$ welche dasselbe Ende
+$s$ haben, ist selbst eine solche Strecke $hs$, und ihr Anfang $h$ ist
+vollständig bestimmt.
+\Beweis
+Denn jede solche Strecke ist (nach \sref{gthm11}) ein System $H_s$, und (nach \sref{gthm8})
+gilt dasselbe von ihrem Durchschnitt, woraus der Satz (nach \sref{gthm27}) folgt.
+\end{satz}
+
+\begin{zusatz}\label{zusatz3}
+Der Durchschnitt der Strecken $as$, $bs$, $cs$, ... ist selbst eine dieser Strecken.
+\end{zusatz}
+
+Zum Beweise schicke man folgenden Hilfssatz voraus:
+
+\begin{hilfssatz}\label{hilfssatz1}
+Ist $hs$ echter Teil von $as$, und $k$ das Element,
+dessen Bild $k' = h$ ist, so ist $hs$ auch echter Teil von $ks$, und
+zugleich ist $ks \TeilVon as$.
+\Beweis
+Wäre $k = s$, so wäre $hs = s's = S$, während doch
+$hs$ echter Teil von $as$, also auch von $S$ ist. Da also $k$ verschieden
+von $s$ ist, so ist (nach \sref{gthm18}) $ks = [k] + hs$ und (nach \sref{gthm19})
+$k$ nicht in $hs$ enthalten, also $hs$ echter Teil von $ks$. Da $hs$ echter Teil
+von $as$ ist, so sei $as = M + hs$, wo $M$ das System aller Elemente $m$ von
+$as$, die außerhalb $hs$ liegen und also auch von $s$ verschieden sind.
+Daraus folgt $M' \TeilVon as$, und da offenbar $M'$ nicht Teil von $M$ sein
+kann (weil $M$ nicht $= S$ ist), so muss es in $M$ ein Element $m$ geben, dessen
+Bild $m'$ außerhalb $M$, also in $hs$ liegt, woraus $m's \TeilVon hs$ folgt.
+\end{hilfssatz}
+
+\begin{quote}
+[\emph{Der Beweis ist offenbar unvollständig. Ein Beweis des Hilfssatzes ergibt
+sich nach Mitteilung von J. Cavaillès direkt aus \sref{gthm25}, indem man die
+dortigen $a$, $b$, $c$ durch $a$, $k$, $s$ ersetzt.
+Der Zusatz folgt aus \sref{gthm28} und dem Hilfssatz. E. N.
+}] \end{quote}
+
+\begin{satz}\label{gthm29}
+Ist $T$ ein Teil von $S$, und $s$ ein Element von $S$, so gibt es in $S$ immer ein
+und nur ein zugehöriges Element $s_1$, welches die beiden folgenden Eigenschaften hat:
+\begin{enumerate} \setcounter{enumi}{0} \setlength\itemsep{-0.25em}
+   \item  Wenn $a$ der Bedingung $T \TeilVon as$ genügt, so ist $s_1s \TeilVon as$.
+   \item $T \TeilVon s_1s$.
+\end{enumerate}
+Hieraus folgen die beiden Eigenschaften:
+\begin{enumerate} \setcounter{enumi}{2} \setlength\itemsep{-0.25em}
+    \item $s_1$ liegt in $T$.
+    \item Die Strecke $ss_1$ enthält kein von $s$ und $s_1$ verschiedenes Element von $T$.
+\end{enumerate}
+\beweis
+Da $s's = S$, also $T \TeilVon s's$ ist (\sref{gthm15}), so gibt es mindestens
+ein Element $a$, das der Bedingung $T$ as genügt. Ist $A$ das System aller dieser
+Elemente $a$, so ist (nach \sref{gthm28}) der Durchschnitt aller ihnen entsprechenden
+Strecken eine Strecke $s_1s$, wo $s_1$ ein völlig bestimmtes Element von $S$ ist.
+Nach dem Begriffe eines Durchschnitts hat $s_1$ die Eigenschaft 1., aber auch die
+Eigenschaft 2., weil $T$ ein gemeinsamer Teil aller $as$, mithin auch Teil ihres
+Durchschnitts $s_1s$ ist. Ist $s_1 = s$, also $s_1s = ss = [s]$, so folgt aus 2.,
+dass $T$ aus dem einzigen Elemente $s$ besteht; und umgekehrt, wenn $s$ in $T$
+liegt und das einzige Element von $T$ ist, so ist $T = [s] = ss]$, also nach 1.\
+auch $s_1s \TeilVon ss$, mithin $s_1 = s$; in diesem Falle hat daher $s_1$ die
+Eigenschaft 3.\ und offenbar auch die Eigenschaft 4. Ist aber $s_1$ verschieden
+von $s$, so ist (nach \sref{gthm18}) $s_1s = [s_1] + (s_1)'s$.
+
+Nimmt man nun an, $s_1$ liege außerhalb $T$, es sei also jedes Element von $T$
+verschieden von $s_1$, so folgt aus 2.\ auch $T \TeilVon (s_1)'s$, und hieraus
+nach 1.\ auch $ss_1 \TeilVon (s_1)'s$, was aber unmöglich ist, weil das (nach
+\sref{gthm10}) in $s_1s$ liegende Element $s_1$ (nach \sref{gthm19}) außerhalb
+$(s_1)'s$ liegt. Mithin ist unsere Annahme unzulässig, d. h.  $s_1$  hat die
+Eigenschaft 3.
+
+Wir betrachten nun die Strecke $ss_1$; besitzt sie ein von $s$ und $s_1$
+verschiedenes Element $u$, so ist auch $s$ verschieden von $s_1$ (weil sonst
+$ss_1 = [s]$, also auch $u = s$ wäre), und (nach \sref{gthm18}) $ss_1 = [s] + ss_1$;
+mithin liegt $u$ in $s's_1$, also (nach \sref{gthm19}) außerhalb $(s_1)'s$, und
+da (wie oben) $s_1s = [s_1] + (s_1)'s$, und $u$ auch von $s_1$ verschieden ist, so
+liegt $u$ auch außerhalb  $s_1s$, also zufolge 2. auch außerhalb $T'$, d. h. $s_1$
+hat auch die Eigenschaft 4.
+\end{satz}
+
+\noindent \textbf{30.}\label{gthm30} \emph{Abbildung von $S$ nach $T$.}
+Durch \sref{gthm29} ist eine Abbildung $\psi$ von $S$ in $T$ hergestellt, welche
+dadurch definiert wird, dass jedes Element $s$ von $S$ durch $\psi$ in das dort
+erklärte, (nach \sref{gdef3}) in $T$ liegende Element $s_1$ übergeht. Ist dann
+$A$ irgend ein Teil von $S$, so soll $A_1$ das zugehörige Bild von $A$ (d. h.
+das System der Bilder aller Elemente $a_1$ von $A$) bedeuten. Es ist also
+$S_1 \TeilVon T$, also auch $T_1 \TeilVon T$, d. h. $T$ wird durch $\psi$ in sich
+selbst abgebildet.
+
+\stepcounter{satz}
+\begin{satz}\label{gthm31}
+Diese Abbildung $\psi$ von $T$ in sich selbst ist eine ähnliche, d. h. sind $a$, $b$
+verschiedene Elemente von $T$, so sind auch deren Bilder $a_1$, $b_1$ verschieden.
+\Beweis
+Nach \sref{gthm29} ist $T \TeilVon a_1a$ und $T \TeilVon b_1b$. Da nun $a$, $b$
+Elemente von $T$ sind, so ist auch $[a] \TeilVon b_1b$, $[b] \TeilVon a_1a$. Wäre
+nun, obgleich $a$, $b$ verschieden sind, doch $a_1 = b_1 = c$, so wäre
+$[a] \TeilVon cb$, $[b] \TeilVon ca$. Da aber $c$ von $a$ und $b$ verschieden
+ist (weil sonst auch $a = b$ wäre), so ist dies (nach Zusatz zu \sref{gthm25})
+unmöglich. Mithin sind $a_1$, $b_1$ verschieden, w.z.b.w.
+\end{satz}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -519,7 +624,6 @@ and % \marginpar{\textit{The definition of finiteness.}}
 \begin{equation}\label{eq2}
 		\text{from } A' \partof A \text{ it follows that } A = S.
 \end{equation}
-
 
 \begin{satz}\label{thm1}$S' = S$.
 \Beweis
@@ -888,6 +992,110 @@ impossible because $s$ (and also $a$) lies outside $H$. Therefore certainly
 $H_s = a's$, and $A = s'a$, qed.
 \end{satz}
 
+\newpage
+
+\begin{satz}\label{thm28}
+The intersection of such segments $as, bs, \ldots$ which have the same end $s$ is
+itself such a segment $hs$, and its beginning $h$ is completely determined.
+\Beweis
+For every such segment is (according to \sref{thm11}) a system $H_s$, and (according
+to \sref{thm8}) the same applies to its intersection, from which the theorem
+(according to \sref{thm27}) follows.
+\end{satz}
+
+\begin{zusatz} \label{cor_to_thm28}
+The intersection of the segments $as, bs, cs \ldots$ is itself one of
+these segments.
+\end{zusatz}
+
+To prove it, we first provide the following lemma:
+
+\begin{hilfssatz}
+If $hs$ is a proper part of $as$, and $k$ is the element whose image is $k'=h$,
+then $hs$ is also a proper part of $ks$, and at the same time $ks \partof as$.
+\Beweis
+If $k=s$, then $hs=s's= S$, while $hs$ is a proper part of $as$, and therefore
+also of $S$. Since $k$ is different from $s$, then (by \sref{thm18}) $ks = [k]+ hs$,
+and (according to \sref{thm19}) $k$ is not contained in $hs$, so $hs$ is a proper
+part of $ks$. Since $hs$ is a proper part of $as$, let $as = M + hs$, where $M$
+is the system of all elements $m$ of $as$ that lie outside $hs$ and are therefore
+also different from $s$. From this follows $M' \partof as$, and since $M'$ obviously
+cannot be part of $M$ (because $M$ is not $= S$), there must be in $M$ an element
+$m$, the image $m'$ of which lies outside $M$, hence in $hs$, from which
+$m's \partof hs$ follows.
+\end{hilfssatz}
+
+\begin{quote}
+[\emph{The proof is apparently incomplete. According to J. Cavaillès, a proof of
+the Lemma results directly from \sref{thm25} by replacing the $a$, $b$, $c$ there
+by $a$, $k$, $s$. The Corollary follows from \sref{thm28} and the Lemma.
+\ \\
+E. N.
+}]\end{quote}
+
+
+\begin{satz}\label{thm29}
+If $T$ is a part of $S$, and $s$ is an element of $S$, then in $S$ there is always
+one and only one associated element $s_1$, which has the following two properties:
+\begin{enumerate} \setcounter{enumi}{0} \setlength\itemsep{-0.25em}
+  \item If $a$ satisfies the condition $T \partof as$, then $s_1s \partof as$.
+  \item $T \partof s_1s$.
+\end{enumerate}
+From this follow the two properties:
+\begin{enumerate} \setcounter{enumi}{2} \setlength\itemsep{-0.25em}
+  \item $s_1$ is in $T$.
+  \item the segment $ss_1$ contains no element of $T$ that is different from $s$ and $s_1$.
+\end{enumerate}
+\beweis
+Since $s's = S$, therefore $T \partof s's$ (by \sref{thm15}), there is at least
+one element $a$ that satisfies the condition $T \partof as$. If $A$ is the system
+of all such elements $a$, then (according to \sref{thm28}) the intersection of
+all the segments corresponding to them is a segment $s_1s$, where $s_1$ is a
+completely determined element of $S$. According to the concept of an intersection,
+$s_1$ has the property 1., but also property 2., because $T$ is a common part of
+all $as$, and therefore also part of their intersection $s_1s$. If $s_1 = s$,
+then $s_1s = ss = [s]$, then it follows from 2.\ that $T$ consists of the single
+element $s$; and vice versa, if $s$ lies in $T$ and is the only element of $T$,
+then $T = [s] = ss$, so then according to 1. $s_1s \partof ss$, therefore $s_1 = s$.
+In this case, $s_1$ therefore has the property 3.\ and obviously also the property
+4.\ But if $s_1$ is different from $s$, then (according to \sref{thm18})
+$s_1s = [s_1] + (s_1)'s$.
+
+If one now assumes that $s_1$ lies outside $T$, if every element of $T$ is
+different from $s_1$, it follows from 2.\ also that $T \partof (s_1)'s$, and from
+this according to 1.\ we also have $s_1s \partof (s_1)'s$, but this is impossible
+because (according to \sref{thm10}) in $s_1s$ is the element $s_1$ (according to
+\sref{thm19}) which lies outside $(s_1)'s$; therefore our assumption is inadmissible,
+i.e., $s_1$ has property 3.
+
+We now consider the segment $ss_1$; if it has an element $u$ that is different
+from $s$ and $s_1$, then $s$ is also different from $s_1$ (because otherwise
+$ss_1 = [s]$, which would also give $u=s$), and (according to \sref{thm18})
+$ss_1 = [s] + ss_1$; therefore $u$ lies in $s's_1$, therefore (according to
+\sref{thm19}) outside $(s_1)'s$, and since (as above) $s_1s= [s_1] + (s_1)'s$,
+and $u$ is also different from $s_1$, then $u$ also lies outside $s_1s$, therefore
+according to 2.\ also outside $T'$, i.e., $s_1$ also has property 4.
+\end{satz}
+
+\noindent \textbf{30.}\label{thm30} \hspace{-10pt} \emph{Mapping of $S$ into $T$}.
+Through \sref{thm29} a mapping $\psi$ of $S$ into $T$ is
+created, which is defined by the fact that each element $s$ of $S$ is sent by
+$\psi$ into the element $s_1$, which is defined there and (according to \sref{def3})
+lies in $T$. If $A$ is then any part of $S$, then $A_1$ should mean the associated
+image of $A$ (i.e., the system of images $a_1$ of all elements $a$ of $A$). So
+$S_1 \partof T$, also $T_1 \partof T$, i.e. $T$ is mapped by $\psi$ into itself.
+
+\stepcounter{satz}
+\begin{satz}\label{thm31}
+This mapping of $T$ into itself is a similar one, i.e., if $a, b$ are different
+elements of $T$, then their images $a_1, b_1$ are also different.%
+\Beweis
+By \sref{thm29}, $T \partof a_1a$ and $T \partof b_1b$. Since $a, b$ are elements
+of $T$, then $[a] \partof b_1b$, $[b] \partof a_1a$. If, although $a, b$ are
+different, $a_1 = b_1  = c$, so then $[a] \partof cb, [b] \partof c$. But since
+$c$ is different from $a$ and $b$ (because otherwise $a = b$), this is impossible
+(after the Corollary to \sref{thm25}). Therefore $a_1, b_1$ are different, qed.
+\end{satz}
 
 \end{paracol}
 \end{document}
