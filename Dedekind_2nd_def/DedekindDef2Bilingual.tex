@@ -59,7 +59,7 @@
 
 % From https://narkive.com/P4sNM0k5:7.443.63
 \newcommand\TeilVon{\mathrel{\raisebox{0.45ex}{$\mathfrak{3}$}}}
-\newcommand{\partof}{\in}
+\newcommand{\partof}{\subseteq}
 
 %\pagestyle{myheadings}
 %\markright{Dedekind, Second definition of the finite and infinite\hfill}
@@ -70,6 +70,10 @@
 
 % \usepackage{showframe}
 % \setcounter{page}{451}
+
+% \newcommand{\sref}[1]{(\underline{\ref{#1}})}% with ()
+\newcommand{\sref}[1]{\underline{\ref{#1}}}% without ()
+
 
 \begin{document}
 \hypersetup{pageanchor=false}
@@ -125,8 +129,6 @@ es keinen echten Teil besitzt und durch die identische Abbildung in sich selbst
 abgebildet wird. Dieser Fall wird im folgenden \emph{ausgeschlossen}, $S$ bedeutet
 ein endliches System, das \emph{nicht} aus einem einzigen Element besteht.
 
-\smallskip
-
 \begin{satz}\label{gthm2}
 Jedes Element $s$ ist verschieden von seinem Bilde $s'$, in Zeichen: $s \neq s'$.
 \Beweis
@@ -159,7 +161,7 @@ $S$ und $[s]$ sind spezielle Systeme $H_s$, und $[s]$ ist der Durchschnitt
 \begin{satz}\label{gthm5}
 $H_s = S$ oder \textit{echter} Teil von $S$, je nachdem $s'$ in $H_s$ liegt oder nicht.
 \Beweis
-Denn wenn $s'$ in $H_s$ liegt, so folgt aus (\ref{gdef3}.II), dass $H'_s \TeilVon H_s$,
+Denn wenn $s'$ in $H_s$ liegt, so folgt aus (\sref{gdef3}{\color{ultrav}.II)}, dass $H'_s \TeilVon H_s$,
 also nach \eqref{geq2}, dass $H_s = S$ ist; und umgekehrt, wenn $H_s = S$, so liegt
 auch $s'$ in $H_s$.
 \end{satz}
@@ -170,30 +172,30 @@ das außerhalb $H_s$ liegt.
 \Beweis
 Denn jedes Element $k$ von $H'_s$ ist Bild $h'$ von mindestens einem Element $h$
 in $H_s$; ist nun $k=h'$ verschieden von $s'$, so ist auch $h$ verschieden von $s$,
-und folglich nach (\ref{gdef3}.II) liegt $k = h'$ in $H_s$, während das Element $s'$
-von $H'_s$ nach (\ref{gthm5}) außerhalb $H_s$ liegt.
+und folglich (nach \sref{gdef3}{\color{ultrav}.II)} liegt $k = h'$ in $H_s$, während das Element $s'$
+von $H'_s$ nach \sref{gthm5} außerhalb $H_s$ liegt.
 \end{satz}
 
 \begin{satz}\label{gthm7}
-Jedes System $H'_s$ ist ein System $H_{s'}$, das heißt (Definition (\ref{gdef3})):
+Jedes System $H'_s$ ist ein System $H_{s'}$, das heißt (Definition \sref{gdef3}):
 \begin{enumerate}[I'.]
     \item $s'$ ist Element von $H'_s$.
     \item Ist $k$ ein von $s'$ verschiedenes Element von $H'_s$, so liegt auch $k'$ in $H'_s$.
 \end{enumerate}
 \beweis
 Das Erste folgt daraus, dass $s$ in $H_s$ liegt, das Zweite daraus,
-dass nach Satz (\ref{gthm6}) $k$ in $H_s$ liegt.
+dass nach Satz \sref{gthm6} $k$ in $H_s$ liegt.
 \end{satz}
 
 \begin{satz}\label{gthm8}
 Sind $A$, $B$, $C$ \ldots\ spezielle, demselben $s$ entsprechende Systeme $H_s$,
 so ist auch ihr Durchschnitt $H$ ein System $H_s$.
 \Beweis
-Denn zufolge (\ref{gdef3}.I) ist $s$ gemeinsames Element von $A, B, C, \ldots$,
+Denn zufolge \sref{gdef3}{\color{ultrav}.I} ist $s$ gemeinsames Element von $A, B, C, \ldots$,
 also auch Element von $H$. Ist ferner $h$ ein von $s$ verschiedenes Element von
-$H$, so ist zufolge (\ref{gdef3}.II) das Bild $h'$ Element von $A$, von $B$, von
+$H$, so ist zufolge \sref{gdef3}{\color{ultrav}.II} das Bild $h'$ Element von $A$, von $B$, von
 $C$, \ldots, also auch von $H$. Mithin erfüllt $H$ die beiden für jedes $H_s$
-charakteristischen Bedingungen I, II in (\ref{gdef3}).
+charakteristischen Bedingungen I, II in \sref{gdef3}.
 \end{satz}
 
 \begin{deff}\label{gdef9}
@@ -215,7 +217,7 @@ liegt. (a \emph{Anfang} von $ab$.)
 $ab$ ist ein System $H_b$, d. h. $[b] \TeilVon ab$, und wenn $s$ ein von $b$
 verschiedenes Element von $ab$ ist, so ist $[s'] \TeilVon ab$.
 \Beweis
-Dies folgt aus (\ref{gthm8}).
+Dies folgt aus \sref{gthm8}.
 \end{satz}
 
 Also $b$ Element (\emph{Ende}) von $ab$. Ist $H \TeilVon ab$, aber $b$ nicht in
@@ -224,45 +226,44 @@ $H$ enthalten, so ist $H' \TeilVon ab$.
 \begin{satz}\label{gthm12}
 Aus $[a] \TeilVon H_b$ folgt $ab \TeilVon H_b$.
 \Beweis
-Unmittelbare Folge von (\ref{gdef9}).
+Unmittelbare Folge von \sref{gdef9}.
 \end{satz}
 
 \begin{satz}\label{gthm13}
 $aa = [a]$.
 \Beweis
-Dies folgt aus (\ref{gthm4}), weil $aa$ der Durchschnitt aller $H_a$  ist, die
-ja alle das Element $a$ enthalten nach (\ref{gdef3}.I).
+Dies folgt aus \sref{gthm4}, weil $aa$ der Durchschnitt aller $H_a$  ist, die
+ja alle das Element $a$ enthalten nach \sref{gdef3}.I
 \end{satz}
 
 \begin{satz}\label{gthm14}
 Ist $b'$ Element von $ab$, so ist $ab = S$.
 \Beweis
-Dies folgt aus (\ref{gthm11}) und (\ref{gthm5}).
+Dies folgt aus \sref{gthm11} und \sref{gthm5}.
 \end{satz}
 
 \begin{satz}\label{gthm15}
 $b' b = S$.
 \Beweis
-Dies folgt aus (\ref{gthm14}) und (\ref{gthm10}).
+Dies folgt aus \sref{gthm14} und \sref{gthm10}.
 \end{satz}
 
 \begin{satz}\label{gthm16}
 Ist $c$ Element von $ab$, so ist $cb \TeilVon ab$.
 \Beweis
-Dies folgt aus (\ref{gthm12}), denn $ab$ ist ein $H_b$,
-(nach (\ref{gthm11})), welches das Element $c$ enthält.
+Dies folgt aus \sref{gthm12}, denn $ab$ ist ein $H_b$,
+(nach \sref{gthm11}), welches das Element $c$ enthält.
 \end{satz}
 
 \begin{satz}\label{gthm17}
 Bedeutet $A + B$ das aus $A, B$ zusammengesetzte System, so ist
 \[
 	a'b + b'a = S.
-\]
-\vspace*{-16pt}%
-\Beweis
+\]%
+\beweis
 Denn wenn $s$ Element von $a'b$, so ist $s'$ in $b'a$ oder $a'b$
-enthalten, je nachdem $s = b$ oder verschieden von $b$ (zufolge (\ref{gthm10})
-oder ~(\ref{gthm11}) und (\ref{gdef3}.II)), und ebenso, wenn $s$ Element von
+enthalten, je nachdem $s = b$ oder verschieden von $b$ (zufolge \sref{gthm10}
+oder ~\sref{gthm11} und \sref{gdef3}.II), und ebenso, wenn $s$ Element von
 $b'a$, so ist $s'$ in $a'b$ oder $b'a$ enthalten; also ist
 $(a'b + b'a)' \TeilVon a'b + b'a$; hieraus folgt der Satz nach \eqref{geq2}.
 \end{satz}
@@ -271,17 +272,17 @@ $(a'b + b'a)' \TeilVon a'b + b'a$; hieraus folgt der Satz nach \eqref{geq2}.
 Ist $a$ verschieden von $b$, so ist $ab = [a] + a'b$.
 \Beweis
 Denn da $a$ ein von $b$ verschiedenes Element von $ab$ ist, so ist $a'$ Element
-von $ab$ (\ref{gthm10}, \ref{gthm11}), und folglich (\ref{gthm16}) ist
-$a'b \TeilVon ab$; da ferner (\ref{gthm10}) auch $[a] \TeilVon ab$, mithin
+von $ab$ \sref{gthm10}, \sref{gthm11}, und folglich \sref{gthm16} ist
+$a'b \TeilVon ab$; da ferner \sref{gthm10} auch $[a] \TeilVon ab$, mithin
 \[
 	[a] + a'b \TeilVon ab.
 \]
 Ferner: jedes von $b$ verschiedene Element $s$ von $[a] + a'b$ ist entweder
 $= a$ oder ein von $b$ verschiedenes Element von $a'b$, in beiden Fällen ist
-$s'$ (nach (\ref{gthm10}), (\ref{gthm11})) Element von $a'b$, also auch von
-$[a]+ a'b$, und da (\ref{gthm11}) auch $[b] \TeilVon [a] + a'b$, so ist
+$s'$ (nach \sref{gthm10}, \sref{gthm11}) Element von $a'b$, also auch von
+$[a]+ a'b$, und da \sref{gthm11} auch $[b] \TeilVon [a] + a'b$, so ist
 $[a] + a'b$ ein System $H_b$; da endlich auch $[a] \TeilVon [a] + a'b$, so ist
-(\ref{gthm12}) auch
+\sref{gthm12} auch
 \[
 	ab \TeilVon [a] + a' b.
 \]
@@ -299,10 +300,10 @@ Element $a$, das in $a'b$ liegt, und bezeichnet mit $A$ das System aller
 solcher Elemente $a$, so ergibt sich folgendes.
 
 Setzt man $a' = s$, so liegt $a$ in $sb$, und da $a$ verschieden von $b$ ist, also
-(nach (\ref{gthm13})) nicht in $bb$ liegt, so ist $s$ verschieden von $b$, und
-hieraus folgt (nach (\ref{gthm18})), dass $sb = [s] + s'b$ ist. Da ferner $a$
-(nach (\ref{gthm2})) verschieden von $s$ ist und in $sb$ liegt, so muss $a$ in
-$s'b$ liegen, und hieraus folgt wieder (nach (\ref{gthm1})), dass auch $s$
+(nach \sref{gthm13}) nicht in $bb$ liegt, so ist $s$ verschieden von $b$, und
+hieraus folgt (nach \sref{gthm18}), dass $sb = [s] + s'b$ ist. Da ferner $a$
+(nach \sref{gthm2}) verschieden von $s$ ist und in $sb$ liegt, so muss $a$ in
+$s'b$ liegen, und hieraus folgt (wieder nach \sref{gthm1}), dass auch $s$
 (als Bild $a'$) in $s'b$ liegt.
 
 Mithin ist das Bild $a'$ eines jeden Elementes $a$ von $A$ ebenfalls in $A$
@@ -319,8 +320,8 @@ Element.
 \Beweis
 Nimmt man nämlich das Gegenteil an, es gebe ein gemeinsames Element
 $m\,$ von $a'b\,$, $b'a\,$, so folgt aus dem vorhergehenden Satz
-(\ref{gthm19}~), dass $m$ verschieden von $b$ und von $a$ ist; mithin muss
-(\ref{gthm11}) das Bild $m'$ ebenfalls gemeinsames Element von $a'b$ und $b'a$ sein.
+\sref{gthm19}, dass $m$ verschieden von $b$ und von $a$ ist; mithin muss
+\sref{gthm11} das Bild $m'$ ebenfalls gemeinsames Element von $a'b$ und $b'a$ sein.
 
 Bezeichnet man daher
 mit $M$ das System aller solcher Elemente $m$, so ist $M' \TeilVon M$, also
@@ -332,22 +333,22 @@ Elemente von $M$ sind. Also ist unser Satz wahr.
 Sind $a, b$ verschieden, so sind auch die Bilder $a', b'$ verschieden.
 \Beweis
 Denn sonst hätten die Strecken $a'b, b'a$ ein gemeinsames Element $a' = b'$, weil
-$a'$ (nach (\ref{thm10})) Element von $a'b$ und $b'$ Element von $b'a$ ist.
+$a'$ (nach \sref{thm10}) Element von $a'b$ und $b'$ Element von $b'a$ ist.
 \end{satz}
 
 \begin{satz}\label{gthm22}
 Aus $cb = S$ folgt $c = b'$.
 \Beweis
-Es gibt (nach (\ref{thm1}) und (\ref{thm21})) in $S$ ein und nur ein Element $a$,
+Es gibt (nach \sref{thm1} und \sref{thm21}) in $S$ ein und nur ein Element $a$,
 welches der Bedingung $a' = c$ genügt, und es ist also $a'b = S$, mithin
-$[a] \TeilVon a'b$; es muss daher (\ref{gthm19}) $a = b$, also $c = b'$ sein, w.z.b.w.
+$[a] \TeilVon a'b$; es muss daher (\sref{gthm19}) $a = b$, also $c = b'$ sein, w.z.b.w.
 \end{satz}
 
 \begin{satz}\label{gthm23}
 Sind $a, b$ verschieden, so ist jedes Element von $S$ in einer und nur einer
 der Strecken $a'b, b'a$ enthalten.
 \Beweis
-Dies folgt aus (\ref{thm17}) und (\ref{thm20}).
+Dies folgt aus \sref{thm17} und \sref{thm20}.
 \end{satz}
 
 \begin{satz}\label{gthm24}
@@ -356,9 +357,9 @@ gemeinsames Element, und dasselbe gilt von den Strecken $a'c,\, b'a,\, c'b$.
 \Beweis
 Denn die gegenteilige Annahme, es gebe ein den Strecken $b'c,\, c'a,\, a'b$
 gemeinsames Element $m$, führt zu einem Widerspruch. Es sei $M$ das System aller
-solcher Elemente. Da (nach (\ref{gthm19})) $a$ nicht in $a'b$, $ b$ nicht in
+solcher Elemente. Da (nach \sref{gthm19}) $a$ nicht in $a'b$, $ b$ nicht in
 $b'c$, $c$ nicht in $c'a$ liegt, so ist $m$ verschieden von $c, a, b$, und folglich
-(\ref{thm11}) ist $m'$ ebenfalls gemeinsames Element von $b'c,\, c'a,\, a'b$,
+(\sref{thm11}) ist $m'$ ebenfalls gemeinsames Element von $b'c,\, c'a,\, a'b$,
 also Element von $M$.
 
 Mithin ist $M' \TeilVon M$, also $M = S$. Dies ist aber unmöglich, weil $M$ keins
@@ -369,17 +370,17 @@ wodurch die Annahme nicht geändert wird.
 \end{satz}
 
 \begin{zusatz}\label{zusatz1}
-Setzt man (wie auch in dem folgenden (\ref{gthm25})):
+Setzt man (wie auch in dem folgenden \sref{gthm25}):
 \[
     A = c'b,\ B = a'c,\ C = b'a;\  A_1 = b'c,\ B_1 = c'a,\ C_1 = a'b,
 \]
-so ist $A - B - C = 0$\footnote{[Dabei bedeutet das Zeichen -- den Durchschnitt.]}
-(leer) und $A_1 - B_1 - C_1 = 0$ (leer) und (nach (\ref{gthm17}), (\ref{gthm20})) ist
+so ist $A - B - C = 0$ (leer) (dabei bedeutet das Zeichen $-$ den Durchschnitt)
+ und $A_1 - B_1 - C_1 = 0$ (leer) und (nach \sref{gthm17}, \sref{gthm20}) ist
 \begin{gather*}
     S = A + A = B + B_1 = C + C_1; \\
     \,0 = A - A_1 = B - B_1 = C - C_1.
 \end{gather*}
-Dies gilt auch dann (nach (\ref{gthm20})), wenn von den Elementen $a$, $b$, $c$
+Dies gilt auch dann (nach \sref{gthm20}), wenn von den Elementen $a$, $b$, $c$
 wenigstens zwei verschieden sind.
 \end{zusatz}
 
@@ -399,20 +400,86 @@ $c'b$, $a'c$, $b'a$; oder es ist
 und jedes Element von $S$ liegt in einer, aber nur einer der Strecken
 $b'c$, $c'a$, $a'b$.
 \Beweis
-Zufolge (\ref{gthm23}) liegt $c$ entweder in $a'b$ oder in $b'a$. Wir betrachten
+Zufolge \sref{gthm23} liegt $c$ entweder in $a'b$ oder in $b'a$. Wir betrachten
 nur den ersten Fall, weil aus ihm der zweite durch Vertauschung von $a$ mit $b$
 hervorgeht. Da $c$ in $a'b$ liegt und von $b$ verschieden ist, so liegt
-(nach (\ref{gthm11})) auch $c'$ in $a'b$, und folglich (\ref{gthm16}) ist
-$c'b \TeilVon a'b$; hieraus folgt (nach \ref{gthm19}), dass $c'b$ mit $b'a$ kein
-gemeinsames Element hat; nun ist (mit \ref{gthm17}) $a'b + b'a = b'c + c'b$,
-mithin $b'a \TeilVon b'c$ und folglich (\ref{gthm11}) liegt $a$ in $b'c$.
+(nach \sref{gthm11})) auch $c'$ in $a'b$, und folglich (\sref{gthm16}) ist
+$c'b \TeilVon a'b$; hieraus folgt (nach \sref{gthm19}), dass $c'b$ mit $b'a$ kein
+gemeinsames Element hat; nun ist (mit \sref{gthm17}) $a'b + b'a = b'c + c'b$,
+mithin $b'a \TeilVon b'c$ und folglich (\sref{gthm11}) liegt $a$ in $b'c$.
 
 Aus der Annahme, dass $c$ in $a'b$ liegt, hat sich also ergeben: $c'b \TeilVon a'b$,
-$b'a \TeilVon b'c$, $a$ liegt in $b'c$. Auf dieselbe Weise ergeben sich aus dieser
-letzten Folgerung, wenn man $c$, $a$, $b$ in der Annahme resp. durch $a$, $b$, $c$
-ersetzt, wieder die Folgerungen $a'c \TeilVon b'c$, $c'b \TeilVon c'a$, $b$ liegt
-in $c'a$; und hieraus folgt abermals $b'a \TeilVon c'a$, $a'c \TeilVon a'b$ (und
-die erste Annahme: $c$ liegt in $a'b$).
+$b'a \TeilVon b'c$, $a$ liegt in $b'c$. Auf dieselbe Weise ergeben sich aus
+dieser letzten Folgerung, wenn man $c$, $a$, $b$ in der Annahme resp. durch $a$,
+$b$, $c$ ersetzt, wieder die Folgerungen $a'c \TeilVon b'c$, $c'b \TeilVon c'a$,
+$b$ liegt in $c'a$; und hieraus folgt abermals $b'a \TeilVon c'a$,
+$a'c \TeilVon a'b$ (und die erste Annahme: $c$ liegt in $a'b$).
+
+Es ist also: $c'b \TeilVon a'b$, $b'a \TeilVon b'c$, $a'c \TeilVon b'c$,
+$c'b \TeilVon c'a$, $b'a \TeilVon c'a$, $a'c \TeilVon a'b$, also auch
+$b'a + a'c \TeilVon b'c$, $c'b + b'a \TeilVon c'a$, $a'c + c'b \TeilVon a'b$.
+
+\newpage
+
+Läge nun z. B. ein Element von $b'c$ weder in $b'a$, noch in $a'c$,
+so wäre es (nach \sref{gthm23}) gemeinsames Element von $b'c$, $a'b$, $c'a$, was
+(nach \sref{gthm24}) unmöglich ist; mithin ist $b'c \TeilVon b'a + a'c$, also auch
+$b'c = b'a + a'c$, und ebenso folgt $c'a = c'b + b'a$, $a'b = a'c + c'b$.
+
+Hätten nun z. B. $b'a$, $a'c$ ein gemeinsames Element, so wäre dasselbe
+auch gemeinsames Element von $b'c$, $c'a$, $a'b$, was (nach \sref{gthm24}) nicht
+der Fall ist. Aus $S = b'c + c'b$ folgt endlich $S = b'a + a'c + c'b$,
+womit unser Satz vollständig bewiesen ist.
+\end{satz}
+
+\begin{zusatz}\label{zusatz2}
+Es kann nie gleichzeitig $[a] \TeilVon cb$ und $[b] \TeilVon ca$ sein;
+weil (nach \sref{gthm18}) dann auch gleichzeitig $[a] \TeilVon c'b$ und
+$[b] \TeilVon c'a$  sein müsste, was unmöglich.
+\end{zusatz}
+
+\begin{satz}\label{gthm26}
+Aus $ab = cb$ folgt $a = c$, und wenn $ab = cd$ ein echter Teil von $S$ ist,
+so ist $a = c$, $b = d$.
+\Beweis
+Dies folgt schon aus früheren Sätzen. Da (nach \sref{gthm10}) $c$ in $cb$, also
+auch in $ab$ liegt, so muss, falls $a = b$, also $ab = [a]$ ist, auch $c = a$ sein.
+Ist aber $a$ verschieden von $b$, so ist (nach \sref{gthm18}) $ab = [a] + a'b$, und
+(nach \sref{gthm19}) $a'b$ ist echter Teil von $ab$; nimmt man an, es sei $c$
+verschieden von $a$, so muss $c$ in $a'b$ liegen, also ist (nach \sref{gthm16})
+$cb \TeilVon a'b$, also $cb$ echter Teil von $ab$; da aber $cb = ab$ ist, so ist
+diese Annahme unzulässig, mithin immer $c = a$, w.z.b.w.
+
+Ist ferner $ab = cd$ ein echter Teil von $S$, so muss $b = d$ sein; ist nämlich
+$b$ verschieden von $d$, so muss (\sref{gthm11}) auch $b'$ in $cd$, also auch in
+$ab$ liegen; dann wäre aber (\sref{gthm14}) $ab = S$ gegen die Voraussetzung,
+also ist $b = d$, mithin $ ab = cb$, also auch $a = c$, w.z.b.w.
+\end{satz}
+
+\begin{satz}\label{gthm27}
+Jedes (in \sref{gdef3} erklärte) System $H_s$, ist eine Strecke $a's$ mit dem
+Ende $s$ und ihr Anfang $a'$ ist völlig bestimmt.
+\Beweis
+Ist $H_s= S$, so ist $H_s= s's$ (nach \sref{gthm15}). Ist $H_s$ aber echter Teil
+von $S$, so sei $A$ das System aller außerhalb $H_s$ liegenden Elemente von $S$,
+also $S = A + H_s$. Da $A$ echter Teil von $S$ ist, so kann nicht $A' \TeilVon A$
+sein, es gibt also gewiss ein Element $a$ in $A$, dessen Bild $a'$ außerhalb $A$,
+also in $H_s$ liegt; da (nach \sref{gthm12}) folglich $a's \TeilVon H_s$ ist, so
+haben $a's$, $A$ kein gemeinsames Element.
+
+Da $a$ in  $A$, $s$ in $H_s$ (sogar in $a's$) liegt, so sind $a$, $s$ verschieden,
+also haben (nach \sref{gthm20}) die Strecken $a's$, $s'a$ kein gemeinsames Element,
+und (nach \sref{gthm17}) ist  $a's + s'a = S = H_s + A$, mithin $A \TeilVon s'a$.
+Nimmt man nun an, es sei $a's$ ein echter Teil von $H_s$, und bezeichnet mit $H$
+das System aller derjenigen Elemente von $H_s$, welche außerhalb $a's$, also in
+$s'a$, so ist $H_s = H + a's$, und $s'a = H + A$, also ist $H = H_s - s'a$ der
+Durchschnitt der Systeme $H_s$, $s'a$.
+
+Da nun weder $s$ noch $a$ in $H$ liegt, so folgt aus $H \TeilVon H_s$, und
+$H \TeilVon s'a$ (nach \sref{gdef3} und \sref{gthm11}), dass auch $H' \TeilVon H_s$
+und $H' \TeilVon s'a$, also auch $H' \TeilVon H$, mithin $H = S$ ist. Dies ist
+aber unmöglich, weil $s$ (und ebenso $a$) außerhalb $H$ liegt. Mithin ist gewiss
+$H_s= a's$, und $A = s'a$, w.z.b.w.
 \end{satz}
 
 
@@ -463,7 +530,6 @@ Every system $[s]$ consisting of a single element $s$ is finite because it has
 no proper part and is mapped into itself by the identity function. This case is
 \emph{excluded} in the following; $S$ means a finite system that does \emph{not}
 consist of a single element.
-\smallskip
 
 \begin{satz}\label{thm2}
 Every element $s$ is different from its image $s'$, in symbols: $s \neq s'$.
@@ -499,8 +565,8 @@ $S$ and $[s]$ are special systems $H_s$, and $[s]$ is the \emph{intersection}
 $H_s = S$ or $H_s$ is a \textit{proper} part of $S$, depending on whether
 $s'$ lies in $H_s$ or not.
 \Beweis
-For if $s'$ lies in $H_s$, then it follows from (\ref{def3}.II) that
-$H'_s \partof H_s$, therefore by \eqref{eq2} that $H_s = S$. Conversely,
+For if $s'$ lies in $H_s$, then it follows from (\sref{gdef3}{\color{ultrav}.II)}
+that $H'_s \partof H_s$, therefore by \eqref{eq2} that $H_s = S$. Conversely,
 if $H_s = S$, then $s'$ also lies in $H_s$.
 \end{satz}
 
@@ -510,8 +576,8 @@ $H'_s$ that lies outside $H_s$.
 \Beweis
 This is because every element $k$ of $H'_s$ is the image $h'$ of at least one
 element $h$ in $H$. If $k=h'$ is different from $s'$, then $h$ is also different
-from $s$, and consequently by (\ref{def3}.II) $k = h'$ lies in $H_s$, while the
-element $s'$ of $H'_s$ by (\ref{thm5}) lies outside $H_s$.
+from $s$, and consequently (by \sref{gdef3}{\color{ultrav}.II)} $k = h'$ lies in
+$H_s$, while the element $s'$ of $H'_s$ by \sref{thm5} lies outside $H_s$.
 \end{satz}
 
 \begin{satz}\label{thm7}
@@ -523,18 +589,19 @@ Every system $H'_s$ is a system $H_{s'}$, that is (by definition 3.):
 \end{enumerate}
 \beweis
 The first follows from the fact that $s$ lies in $H_s$, the second from the fact
-that $k$ lies in $H_s$ by (\ref{thm6}).
+that $k$ lies in $H_s$ by \sref{thm6}.
 \end{satz}
 
 \begin{satz}\label{thm8}
 If $A$, $B$, $C$ \ldots\ are special systems $H_s$ corresponding to the same $s$,
 then their intersection $H$ is also a system $H_s$.
 \Beweis
-Because according to (\ref{def3}.I) $s$ is a common element of $A, B, C, \ldots$,
-thus also an element of $H$. If $h$ is an element of $H$ that is different from
-$s$, then, by  (\ref{def3}.II), the image $h'$ is an element of $A$, of $B$, of
-$C$, \ldots, and therefore also of $H$. $H$ thus fulfills the two conditions I
-and II in definition (\ref{def3}) that are characteristic of every $H_s$.
+Because according to \sref{gdef3}{\color{ultrav}.I} $s$ is a common element of
+$A, B, C, \ldots$, thus also an element of $H$. If $h$ is an element of $H$ that
+is different from $s$, then by \sref{gdef3}{\color{ultrav}.II}, the image $h'$
+is an element of $A$, of $B$, of $C$, \ldots, and therefore also of $H$. $H$ thus
+fulfills the two conditions I and II in definition \sref{def3} that are
+characteristic of every $H_s$.
 \end{satz}
 
 \begin{deff}\label{def9}
@@ -544,7 +611,6 @@ contain the element $a$.%
 \end{deff}
 
 \newpage
-
 \begin{satz}\label{thm10}
 $a$ is an element of $ab$, i.e., $[a] \partof ab$.
 \Beweis
@@ -556,7 +622,7 @@ This is because $ab$ is the intersection of all systems $H_b$ in which $a$ lies.
 $ab$ is a system $H_b$, i.e. $[b] \partof ab$, and if $s$ is an element of $ab$
 different from $b$, then $[s'] \partof ab$.
 \Beweis
-This follows from (\ref{thm8}).
+This follows from \sref{thm8}.
 \end{satz}
 
 So $b$ is an element (the \emph{end}) of $ab$. If $H \partof ab$ but $b$ is not
@@ -565,32 +631,32 @@ contained in $H$, then $H' \partof ab$.
 \begin{satz}\label{thm12}
 From $[a] \partof H_b$, follows from $ab \partof H_b$.
 \Beweis
-Immediate consequence of definition (\ref{def9}).
+Immediate consequence of definition \sref{def9}.
 \end{satz}
 
 \begin{satz}\label{thm13}
 $aa = [a]$.
 \Beweis
-This follows from (\ref{thm4}), because $aa$ is the intersection of all $H_a$
-that contain the element $a$ according to (\ref{def3}.I).
+This follows from \sref{thm4}, because $aa$ is the intersection of all $H_a$
+that contain the element $a$ according to \sref{def3}.I.
 \end{satz}
 
 \begin{satz}\label{thm14}
 If $b'$ is an element of $ab$, then $ab = S$.
 \Beweis
-This follows from (\ref{thm11}) and (\ref{thm5}).
+This follows from \sref{thm11} and \sref{thm5}.
 \end{satz}
 
 \begin{satz}\label{thm15}
 $b' b = S$.
 \Beweis
-This follows from (\ref{thm14}) and (\ref{thm10}).
+This follows from \sref{thm14} and \sref{thm10}.
 \end{satz}
 
 \begin{satz}\label{thm16}
 If $c$ is an element of $ab$, then $cb \partof ab$.
 \Beweis
-This follows from (\ref{thm12}), since $ab$ is an $H_b$ by (\ref{thm11}), that
+This follows from \sref{thm12}, since $ab$ is an $H_b$ by \sref{thm11}, that
 contains the element $c$.
 \end{satz}
 
@@ -598,12 +664,11 @@ contains the element $c$.
 If $A + B$ means the system composed of $A, B$, then one has
 \[
 	a'b + b'a = S.
-\]
-\vspace*{-18pt}%
-\Beweis
+\]%
+\beweis
 Because if $s$ is an element of $a'b$, then $s'$ is contained in $b'a$ or $a'b$,
-depending on $s = b$ or different from $b$ (according to (\ref{thm10}) or
-(\ref{thm11}) and (\ref{def3}.II)), and likewise if $s$ is an element of $b'a$,
+depending on $s = b$ or different from $b$ (according to \sref{thm10} or
+\sref{thm11} and \sref{def3}.II), and likewise if $s$ is an element of $b'a$,
 then $s'$ is contained in $a'b$ or $b'a$; therefore $(a'b + b'a)' \partof a'b + b'a$.
 This leads to the theorem according to \eqref{eq2}.
 \end{satz}
@@ -612,18 +677,18 @@ This leads to the theorem according to \eqref{eq2}.
 If $a$ is different from $b$, then $ab = [a] + a'b$.
 \Beweis
 For since $a$ is an element of $ab$ different from $b$, then $a'$ is an element
-of $ab$ (by \ref{thm10}, \ref{thm11}), and consequently (by \ref{thm16})
-$a'b \partof ab$; since furthermore, by (\ref{thm10}), we also have $[a]
+of $ab$ (by \sref{thm10}, \sref{thm11}), and consequently (by \sref{thm16})
+$a'b \partof ab$; since furthermore, by \sref{thm10}, we also have $[a]
 \partof ab$, therefore
 \[
 	[a] + a'b \partof ab.
 \]
 Also, every element $s$ of $[a] + a'b$ that is different from $b$ is either
 $= a$ or an element of $a'b$ that is different from $b$. Thus in both cases $s'$
-is (by (\ref{thm10}), (\ref{thm11})) an element of $a'b$, therefore also of
-$[a]+ a'b$, and since by (\ref{thm11}) also $[b] \partof [a] + a'b$, it follows
+is (by \sref{thm10}, \sref{thm11}) an element of $a'b$, therefore also of
+$[a]+ a'b$, and since by \sref{thm11}) also $[b] \partof [a] + a'b$, it follows
 that $[a] + a'b$ is a system $H_b$. Finally, since $[a] \partof [a] + a'b$, by
-(\ref{thm12}) also
+\sref{thm12} also
 \[
 	ab \partof [a] + a' b.
 \]
@@ -641,17 +706,15 @@ $b$ and lies in $a'b$, and that $A$ denotes the system of all such elements $a$,
 the following holds.
 
 If one puts $a'=s$, then $a$ lies in $sb$, and since $a$ is different from $b$,
-and therefore (according to (\ref{thm13})) is not in $bb$, then $s$ is different
-from $b$, and from this it follows (according to \ref{thm18}) that $sb = [s] + s'b$.
-Furthermore, since $a$ (according to (\ref{thm2})) is different from $s$ and lies
+and therefore (according to \sref{thm13}) is not in $bb$, then $s$ is different
+from $b$, and from this it follows (according to \sref{thm18}) that $sb = [s] + s'b$.
+Furthermore, since $a$ (according to \sref{thm2}) is different from $s$ and lies
 in $sb$, then $a$ must lie in $s'b$, and from this it follows (again according to
-(\ref{thm1})) that $s$ (as the image $a'$) also lies in $s'b$.%
-
+\sref{thm1}) that $s$ (as the image $a'$) also lies in $s'b$.%
 Therefore, the image $a'$ of every element $a$ of $A$ is also contained in $A$,
 i.e. $A' \partof A$. But since $A=S$ would follow from this, while $A$ does not
 contain the element $b$, our assumption is inadmissible, so the theorem is true,
 qed.
-
 The second part follows by exchanging $a$ with $b$.%
 \end{satz}
 
@@ -659,8 +722,8 @@ The second part follows by exchanging $a$ with $b$.%
 If $a$, $b$ are different, then the segments $a'b$, $b'a$ have no common element.
 \Beweis
 If one assumes the opposite, that there is a common element $m$ of $a'b$, $b'a$,
-then it follows from the preceding Theorem \ref{thm19} that $m$ is different from
-$b$ and from $a$; therefore (according to \ref{thm11}) the image $m'$ must also be
+then it follows from the preceding Theorem \sref{thm19} that $m$ is different from
+$b$ and from $a$; therefore (according to \sref{thm11}) the image $m'$ must also be
 a common element of $a'b$ and $b'a$.%
 
 Therefore, if M denotes the system of all such elements $m$, then $M' \partof M$,
@@ -673,23 +736,23 @@ elements of $M$. So our theorem is true.%
 If $a$, $b$ are different, then the images $a'$, $b'$ are also different.
 \Beweis
 Otherwise the segments $a'b$, $b'a$ would have a common element $a'=b'$, because
-(according to \ref{thm10}) $a'$ is an element of $a'b$ and $b'$ is an element
+(according to \sref{thm10}) $a'$ is an element of $a'b$ and $b'$ is an element
 of $b'a$.%
 \end{satz}
 
 \begin{satz}\label{thm22}
 From $cb=S$ follows $c = b$.
 \Beweis
-There is (according to \ref{thm1} and \ref{thm21}) in $S$ one and only one element
+There is (according to \sref{thm1} and \sref{thm21}) in $S$ one and only one element
 $a$ which satisfies the condition $a'=c$, and therefore $a'b = S$, therefore
-$[a] \partof a'b$; therefore (by \ref{thm19}) $a=b$, thus $c=b'$, qed.%
+$[a] \partof a'b$; therefore (by \sref{thm19}) $a=b$, thus $c=b'$, qed.%
 \end{satz}
 
 \begin{satz}\label{thm23}
 If $a$, $b$ are different, then every element of $S$ is contained in one and only
 one of the segments $a'b$, $b'a$.
 \Beweis
-This follows from (\ref{thm17}) and (\ref{thm20}).
+This follows from \sref{thm17} and \sref{thm20}.
 \end{satz}
 
 \begin{satz}\label{thm24}
@@ -698,9 +761,9 @@ common element, and the same applies to the segments $a'c$, $b'a$, $c'b$.
 \Beweis
 Because the opposite assumption, that there is an element $m$ common to the segments
 $b'c$, $c'a$, $a'b$, leads to a contradiction. Let $M$ be the system of all such
-elements. Since (according to (\ref{thm19})) $a$ is not in $a'b$, $b$ is not in $b'c$,
+elements. Since (according to \sref{thm19}) $a$ is not in $a'b$, $b$ is not in $b'c$,
 $c$ is not in $c'a$, then $m$ is different from $c$, $a$, $b$, and consequently
-(by \ref{thm11}) $m'$ is a common element of $b'c$, $c'a$, $a'b$, i.e. an element
+(by \sref{thm11}) $m'$ is a common element of $b'c$, $c'a$, $a'b$, i.e. an element
 of $M$; therefore $M' \partof M$, hence  $M=S$.
 
 But this is impossible because $M$ does not contain any of the elements $a$, $b$,
@@ -711,17 +774,17 @@ change the assumption.
 \end{satz}
 
 \begin{zusatz}\label{corollary1}
-If you put (as in the following \ref{thm25}):
+If you put (as in the following \sref{thm25}):
 \[
     A = c'b,\ B = a'c,\ C = b'a;\  A_1 = b'c,\ B_1 = c'a,\ C_1 = a'b,
 \]
-then $A - B - C = 0$\footnote{[The symbol -- means the intersection.]} (empty) and
-$A_1 - B_1 - C_1 = 0$ (empty) and (according to \ref{thm17}, \ref{thm20}) hence
+then $A - B - C = 0$ (empty) (the symbol $-$ denotes intersection) and
+$A_1 - B_1 - C_1 = 0$ (empty) and (according to \sref{thm17}, \sref{thm20}) hence
 \begin{gather*}
     S = A + A = B + B_1 = C + C_1; \\
     \,0 = A - A_1 = B - B_1 = C - C_1.
 \end{gather*}
-This also applies (according to \ref{thm20}) if at least two of the elements
+This also applies (according to \sref{thm20}) if at least two of the elements
 $a$, $b$, $c$ are different.
 \end{zusatz}
 
@@ -741,15 +804,15 @@ $c'b$, $a'c$, $b'a$; or
 and each element of $S$ lies in one, but only one, of the segments
 $b'c$, $c'a$, $a'b$.
 \Beweis
-According to \ref{thm23}, $c$ lies either in $a'b$ or in $b'a$. We
+According to \sref{thm23}, $c$ lies either in $a'b$ or in $b'a$. We
 only consider the first case because the second arises from it by
 exchanging $a$ for $b$.
 Since $c$ is in $a'b$ and is distinct from $b$, then
-(according to \ref{thm11}) $c'$ also lies in $a'b$, and consequently
-(by \ref{thm16}) $c'b \partof a'b$; from this it follows (by \ref{thm19})
-that $c'b$ has no element in common with $b'a$; now (by \ref{thm17}) is
+(according to \sref{thm11}) $c'$ also lies in $a'b$, and consequently
+(by \sref{thm16}) $c'b \partof a'b$; from this it follows (by \sref{thm19})
+that $c'b$ has no element in common with $b'a$; now (by \sref{thm17}) is
 $a'b+b'a=b'c+c'b$, therefore $b'a \partof b'c$, and consequently
-(by \ref{thm11}) $a$ is in $b'c$.
+(by \sref{thm11}) $a$ is in $b'c$.
 
 From the assumption that $c$ lies in $a'b$, it follows: $c'b \partof a'b$,
 $b'a \partof b'c$, $a$ lies in $b'c$. In the same way, this last
@@ -757,7 +820,74 @@ conclusion follows if one assumes $c$, $a$, $b$ replaced by $a$, $b$, $c$,
 respectively, again we have the consequences $a'c \partof bc$, $cb \partof c'a$,
 and that $b$ lies in $c'a$; and from this it follows again $b'a \partof c'a$,
 $a'c \partof a'b$ (and the first assumption: $c$ lies in $a'b$).
+
+Therefore: $c'b \partof a'b$, $b'a \partof b'c$, $a'c \partof b'c$,
+$c'b \partof ca$, $b'a \partof c'a$, $a'c \partof a'b$, and also
+$b'a + a'c \partof b'c$, $c'b + b'a \partof c'a$, $a'c + c'b \partof a'b$.
+
+\newpage
+
+If now an element of, say, $b'c$ is neither in $b'a$ nor in $a'c$, then
+(by \sref{thm23}) it would be a common element of $b'c$, $a'b$, $c'a$,
+which (by \sref{thm24}) is impossible; therefore $b'c \partof b'a + a'c$,
+therefore also $b'c=b'a + a'c$, and likewise follows $c'a=c'b+b'a$, $a'b=a'c+c'b$.
+
+If, say, $b'a$, $a'c$ have a common element, then the same would also be a common
+element of $b'c$, $c'a$, $a'b$, which (according to \sref{thm24}) is not the case.
+From $S=b'c+c'b$ we finally get $S=b'a+a'c+c'b$, which means our theorem is
+completely proven.
 \end{satz}
+
+\begin{zusatz}
+It can never be that $[a] \partof cb$ and $[b] \partof ca$ at the same time;
+because (according to \sref{thm18}) then $[a] \partof c'b$ and $[b] \partof c'a$
+would have to be at the same time, which is impossible.
+\end{zusatz}
+
+\begin{satz}\label{thm26}
+From $ab=cb$ it follows that $a=c$, and if $ab=cd$ is a proper part of $S$,
+then $a=c$, $b = d$.
+\Beweis
+This follows from earlier theorems.
+Since (by \sref{thm10}) $c$ is in $cb$, and therefore also in $ab$, then if
+$a=b$, then $ab = [a]$, then must also $c=a$. But if $a$ is different from $b$,
+then (by \sref{thm18}) $ab = [a]+a'b$, and (by \sref{thm19}) $a'b$ is a proper
+part of $ab$. If one assumes that $c$ is different from $a$, then $c$ must lie
+in $a'b$, so (by \sref{thm16}) $cb \partof a'b$, i.e. $cb$ is a proper part of $ab$;
+But since $cb=ab$, this assumption is inadmissible, and therefore always $c=a$, qed.
+
+Furthermore, if $ab=cd$ is a proper part of $S$, then $b=d$; If $b$ is different
+from $d$, then (by \sref{thm11}) $b'$ must also be in $cd$, and therefore also in
+$ab$; But then (by \sref{thm14}) would $ab = S$ violating the assumption, so $b=d$,
+therefore $ab=cb$, therefore also $a=c$, qed.
+\end{satz}
+
+\begin{satz}\label{thm27}
+Every system $H_s$ (defined in \sref{def3}) is a segment $a's$ with the end $s$
+and its beginning $a'$ completely determined.
+\Beweis
+If $H_s= S$, then $H_s= s's$ (according to \sref{thm15}).
+But if $H_s$ is a proper part of $S$, then $A$ is the system of all elements
+of $S$ that lie outside $H_s$, so $S=A+H_s$. Since $A$ is a proper part of $S$,
+then $A' \partof A$ cannot be, so there is certainly an element $a$ in $A$, whose
+image $a'$ lies outside $A$, hence in $H_s$. Since (according to \sref{thm12})
+$a's \partof H_s$, then $a's$ and $A$ have no common element.
+
+Since $a$ is in $A$, $s$ is in $H_s$ (even in $a's$), then $a$ and $s$ are
+different, so (by \sref{thm20}) the segments $a's$, $s'a$ have no common element,
+and (by \sref{thm17}) $a's+  s'a=S=H_s+ A,$ therefore $A \partof s'a$.
+If one now assumes that $a's$ is a proper part of $H_s$, and $H$ denotes the
+system of all those elements of $H_s$ which are outside $a's$, i.e., in $s'a$,
+then $H_s = H+a's$, and $s'a = H + A$, so $H=H_s-s'a$ is the intersection of the
+systems $H_s$, $s'a$.
+
+Since neither $s$ nor $a$ lies in $H$, it follows from $H \partof H_s$, and
+$H \partof s'a$ (according to \sref{def3} and \sref{thm11}) that $H' \partof H_s$
+and $H' \partof s'a$, therefore also $H' \partof H$, hence $H = S$. But this is
+impossible because $s$ (and also $a$) lies outside $H$. Therefore certainly
+$H_s = a's$, and $A = s'a$, qed.
+\end{satz}
+
 
 \end{paracol}
 \end{document}
