@@ -161,9 +161,9 @@ $S$ und $[s]$ sind spezielle Systeme $H_s$, und $[s]$ ist der Durchschnitt
 \begin{satz}\label{gthm5}
 $H_s = S$ oder \textit{echter} Teil von $S$, je nachdem $s'$ in $H_s$ liegt oder nicht.
 \Beweis
-Denn wenn $s'$ in $H_s$ liegt, so folgt aus (\sref{gdef3}{\color{ultrav}.II)}, dass $H'_s \TeilVon H_s$,
-also nach \eqref{geq2}, dass $H_s = S$ ist; und umgekehrt, wenn $H_s = S$, so liegt
-auch $s'$ in $H_s$.
+Denn wenn $s'$ in $H_s$ liegt, so folgt aus (\sref{gdef3}{\color{ultrav}.II)},
+dass $H'_s \TeilVon H_s$, also nach \eqref{geq2}, dass $H_s = S$ ist; und umgekehrt,
+wenn $H_s = S$, so liegt auch $s'$ in $H_s$.
 \end{satz}
 
 \begin{satz}\label{gthm6}
@@ -587,6 +587,122 @@ ist (weil sonst auch $a = b$ wäre), so ist dies (nach Zusatz zu \sref{gthm25})
 unmöglich. Mithin sind $a_1$, $b_1$ verschieden, w.z.b.w.
 \end{satz}
 
+\newpage
+
+\hspace{64pt}
+
+\begin{center}\Large\textbf{Erläuterungen zur vorstehenden Abhandlung}
+\end{center}
+
+\bigskip
+
+Die hier gegebene Definition des Endlichen ist chronologisch die erste, die die
+Ableitung aller Eigenschaften ohne Heranziehung des Auswahlaxioms ermöglicht --
+eine Tatsache, die Dedekind wohl noch nicht bewusst war.
+
+Er selbst zieht nur die ersten Folgerungen; auf diesem Weg lässt sich aus seinem
+letzten Satz noch folgern, dass jede Untermenge einer endlichen Menge endlich ist,
+und es lässt sich das Prinzip der vollständigen Induktion beweisen und damit zu
+der ursprünglichen Dedekindschen Definition übergehen (vgl. eine demnächst, Fund.
+Math.\ \textbf{19}, erscheinende Note von J. Cavaillès).
+
+Einen vergleichenden Überblick über die verschiedenen Definitionen des Endlichen
+gibt A. Tarski (\emph{Sur les ensembles finis}, Fund. Math.\ \textbf{6}), dessen
+eigene Definition so lautet: Eine Menge heißt endlich, wenn in jedem System von
+Untermengen mindestens eine im System minimale enthalten ist. Gleichbedeutend mit
+dieser Minimalbedingung -- durch Übergang zur Komplementärmenge -- ist die
+entsprechende Maximalbedingung; aus beiden folgen alle Eigenschaften der endlichen
+Mengen ohne Heranziehung des Auswahlpostulats.
+
+Dass die obige Definition von Dedekind mit der Minimalbedingung äquivalent ist,
+folgert Tarski aus der auch bei Dedekind in einer anderen Fassung auftretenden
+Relation: $ab' \TeilVon ab + [b']$. Insbesondere gelangt Tarski so von der obigen
+zu der ursprünglichen Dedekindschen Definition, während der umgekehrte Übergang
+das Auswahlpostulat erfordert. Dedekind glaubte -- im Vorwort zur 2. Auflage von
+\textit{\glqq Was sind und was sollen die Zahlen?\grqq{}} -- dass der Nachweis
+der Übereinstimmung der Definitionen die volle dort entwickelte Theorie erfordere.
+
+Wie er sich den Übergang im einzelnen gedacht hatte, zeigt die folgende Stelle
+aus einem Brief an H. Weber:
+\begin{quote}
+\glqq Die kürzeste Charakterisierung des Endlichen und Unendlichen ist, wie ich
+glaube, diejenige, welche ich am 9. März 1889 gefunden und in dem Vorwort (S. XI)
+zur zweiten Auflage (1893) der Schrift \textit{\glqq Was sind und was sollen die
+Zahlen?\grqq{}} mitgeteilt habe. Ich spreche sie so aus: \glq Ein System $S$ heißt
+endlich, wenn es eine Abbildung von $S$ in sich selbst gibt, durch welche kein
+echter Teil von $S$ in sich selbst abgebildet wird; im entgegengesetzten Falle
+heißt $S$ ein unendliches System\grq{}.
+
+\hspace{12pt} Nimmt man aber an, dass man die natürliche Zahlenreihe und ihre Gesetze
+schon vollständig kennt, und
+\end{quote}
+
+\newpage
+
+\begin{quote}
+ersetzt man im vorstehenden das Wort \glq heißt\grq{} durch das Wort \glq ist\grq{},
+so verwandelt sich diese Definition in einen Satz, der sich so beweisen lässt:
+
+\hspace{12pt} Es sei $\phi$ eine Abbildung eines Systems $S$ in sich selbst, durch
+welche kein echter Teil von $S$ in sich selbst abgebildet wird. Das Bild eines
+Elementes $a$ oder eines Teiles $A$ von $S$ bezeichne ich mit $a$ oder $A$ (viel
+natürlicher als $\phi(a)$ oder $\phi(A)$). Ist $a$ irgendein Element von $S$, so
+sind auch alle Bilder Elemente von $S$, also ist auch das System $A$ aller dieser
+Bilder ein Teil von $S$,
+\[
+	a\phi, a\phi^2= (a\phi)\phi \ldots, a\phi^{n+1} = (a\phi^n)\phi \ldots
+\]
+und da $A\phi$  das System aller Bilder also ein Teil von $A$ ist,
+\[
+	(a\phi) \phi = a\phi^2, (a\phi^2)\phi = a\phi^3,
+\]
+so wird $A$ durch $\phi$ in sich selbst abgebildet; und folglich ist $A = S$.
+Mithin ist $a$ auch Element von $A$,  es gibt also eine kleinste natürliche Zahl
+$n$, die der Bedingung
+\[
+	a\phi^n = a
+\]
+genügt. Dann ist $S$ das System der $n$ Elemente
+\[
+	a\phi,a\phi^2,\ldots a\phi^n
+\]
+und diese sind voneinander verschieden. Denn zufolge der Definition von $n$ ist das
+letzte Element verschieden von allen vorhergehenden. Wäre ferner $1 \leq r<s < n$
+\[
+	a\phi^r = a\phi^s
+\]
+und so wäre also
+\[
+	(a\phi^r)\phi^{n-s} = (a\phi^s) \phi^{n-s}
+\]
+also
+\[
+	a\phi^{r+n-s} = a\phi^n=a
+\]
+obgleich $1<r+n-s<n$. Dass endlich $S$ keine anderen als diese $n$ Elemente enthält,
+folgt aus $a\phi^{m + n} = a\phi^m$. Also ist wirklich $S$ ein endliches System
+(im üblichen Sinne), und zugleich ergibt sich, dass $\phi$ eine zyklische Permutation
+der $n$ Elemente von $S$, also auch eine ähnliche (d. h. eindeutig umkehrbare)
+Abbildung ist.
+
+\hspace{12pt} Umgekehrt, besteht ein (im üblichen Sinne) endliches System $S$ aus
+$n$ verschiedenen Elementen
+\[
+	a_1, a_2 \ldots a_{n-1}, a_n
+\]
+und definiert man eine Abbildung von $S$ durch
+\[
+a_n\phi = a_1, a_r\phi=a_{r+1}
+\]
+für $1\leq r<n$, so ist $S' = S$, also eine Abbildung $\phi$ von $S$ in sich selbst,
+und man zeigt leicht, dass kein echter Teil von $S$ in sich selbst abgebildet wird.
+Denn wenn ein Teil $A$ von $S$ durch  in sich selbst abgebildet wird und ein Element
+$a$ enthält, so muss $A$ auch alle Elemente $a\phi, a\phi^2, a\phi^3, \ldots\ $,
+also alle Elemente von $S$ enthalten, mithin $= S$ sein. W.z.b.w.\grqq{}
+\end{quote}
+
+\vspace{-20pt} \begin{flushright} \textbf{Noether.}\end{flushright}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -998,14 +1114,13 @@ $H_s = a's$, and $A = s'a$, qed.
 The intersection of such segments $as, bs, \ldots$ which have the same end $s$ is
 itself such a segment $hs$, and its beginning $h$ is completely determined.
 \Beweis
-For every such segment is (according to \sref{thm11}) a system $H_s$, and (according
-to \sref{thm8}) the same applies to its intersection, from which the theorem
-(according to \sref{thm27}) follows.
+For every such segment is (according to \sref{thm11}) a system $H_s$, and
+(according to \sref{thm8}) the same applies to its intersection, from which the
+theorem (according to \sref{thm27}) follows.
 \end{satz}
 
 \begin{zusatz} \label{cor_to_thm28}
-The intersection of the segments $as, bs, cs \ldots$ is itself one of
-these segments.
+The intersection of the segments $as, bs, cs \ldots$ is itself one of these segments.
 \end{zusatz}
 
 To prove it, we first provide the following lemma:
@@ -1096,6 +1211,128 @@ different, $a_1 = b_1  = c$, so then $[a] \partof cb, [b] \partof c$. But since
 $c$ is different from $a$ and $b$ (because otherwise $a = b$), this is impossible
 (after the Corollary to \sref{thm25}). Therefore $a_1, b_1$ are different, qed.
 \end{satz}
+
+\newpage
+
+\hspace{84pt}
+
+\begin{center}{\Large\textbf{Explanations to the above treatise \ \\ }}
+\end{center}
+
+\vspace{36pt}
+
+The definition of the finite given here is chronologically the first that enables
+the derivation of all properties without using the axiom of choice -- a fact that
+Dedekind was probably not yet aware of.
+
+He himself only draws the first conclusions. In this way, one can still conclude
+from his last theorem that every subset of a finite set is finite, and the principle
+of complete induction can be proven and thus move on to Dedekind's original
+definition (cf. a forthcoming note by J. Cavaillès, Fund.\ Math.\ \textbf{19}.)
+\ \\
+
+A comparative overview of the various definitions of finiteness is given by A.
+Tarski (\emph{Sur les ensembles finis}, Fund.\ Math.\ \textbf{6}) whose own
+definition goes like this: A set is said to be finite if in every system of
+subsets at least one is included that is minimal in the system. The corresponding
+maximum condition is equivalent to this minimum condition -- through transition to the
+complementary set; all properties of finite sets follow from both without using
+the axiom of choice.
+\ \\
+
+Tarski concludes that the above definition by Dedekind is equivalent to the
+minimal condition from the relation that also appears in a different version in
+Dedekind: $ab' \partof ab+[b']$. In particular, Tarski gets from the above to
+the original Dedekind definition, while the reverse transition requires the axiom
+of choice. Dedekind believed -- in the preface to the 2nd edition of
+\emph{``Was sind und was sollen die Zahlen?''} -- that the proof of the agreement
+of the definitions required the full theory developed there.
+\ \\
+
+How he thought about the transition in detail is shown in the following passage
+from a letter to H. Weber:
+
+\begin{quote}
+``The shortest characterization of the finite and infinite is, as I believe, the
+one which I found on March 9, 1889 and in the preface (p. XI) to the second edition
+(1893) of the work, \emph{``Was sind und was sollen die Zahlen?''}. I say it like
+this: `A system $S$ is called finite if there is a mapping of $S$ into itself
+through which no proper part of $S$ is mapped into itself; in the opposite case,
+$S$ is called an infinite system'.
+\ \\
+
+\hspace{12pt} But if one assumes that one already knows the series of natural
+number and its laws completely, and
+
+\end{quote}
+
+\newpage
+
+\begin{quote}
+one replaces the word `called' with the word `is' in the above, then this definition
+turns into a theorem that can be proven like this:
+
+\hspace{12pt} Let $\phi$ be a mapping of a system $S$ into itself, through which
+no proper part of $S$ is mapped into itself. I denote the image of an element $a$
+or a part $A$ of $S$ with $a\phi$ or $A\phi$ (much more natural than $\phi(a)$
+or $\phi(A)$). If $a$ is any element of $S$, then all the images are elements of
+$S$, thus the system $A$ of all these images is also a part of $S$,
+\vspace{14pt}
+\[
+	a\phi, a\phi^2= (a\phi)\phi \ldots, a\phi^{n+1} = (a\phi^n)\phi \ldots
+\]
+and since $A\phi$ is the system of all images is also a part of $A$,
+\[
+	(a\phi) \phi = a\phi^2, (a\phi^2)\phi = a\phi^3,
+\]
+then $A$ is mapped into itself by $\phi$; and consequently $A = S$. Therefore a
+is also an element of $A$, so there is a smallest natural number $n$, that
+satisfies the condition
+\[
+	a\phi^n = a.
+\]
+Then $S$ is the system of $n$ elements
+\[
+	a\phi,a\phi^2,\ldots a\phi^n
+\]
+and these are different from each other.
+For according to the definition of $n$, the last element is different from all
+previous ones. Would also be $1 \leq r<s < n$ and
+\[
+	a\phi^r = a\phi^s
+\]
+than it would be the case that
+\[
+	(a\phi^r)\phi^{n-s} = (a\phi^s) \phi^{n-s}
+\]
+hence
+\[
+	a\phi^{r+n-s} = a\phi^n=a
+\]
+although $1<r+n-s<n$.
+Finally, the fact that $S$ contains no elements other than these follows from
+$a\phi^{m + n} = a\phi^m$. So $S$ is really a finite system (in the usual sense),
+and at the same time it follows that $\phi$ is a cyclic permutation of the $n$
+elements of $S$, so it is also a similar (i.e. clearly revertible) mapping.
+
+\hspace{12pt} Conversely, a finite (in the usual sense) system $S$ consists of
+$n$ different elements
+\[
+	a_1, a_2 \ldots a_{n-1}, a_n
+\]
+and one defines a mapping $\phi$ of $S$ by
+\[
+a_n\phi = a_1, a_r\phi=a_{r+1}
+\]
+for $1\leq r<n$, then $S' = S$, so $\phi$ is a mapping from $S$ into itself, and
+one easily shows that no proper part of $S$ is mapped into itself. Because if
+a part $A$ of $S$ is mapped by $\phi$ into itself and contains an element $a$,
+then $A$ must also contain all elements $a\phi, a\phi^2, a\phi^3, \ldots \ $, i.e.,
+all elements of $S$, and therefore $= S$. Qed.''
+\end{quote}
+
+\begin{flushright}\textbf{Noether.}\end{flushright}
+
 
 \end{paracol}
 \end{document}
