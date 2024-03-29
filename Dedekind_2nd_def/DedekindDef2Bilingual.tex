@@ -4,6 +4,7 @@
 \usepackage{color,hyperref}
 \usepackage{enumerate}
 \usepackage{microtype}
+
 \linespread{1.25}
 
 \definecolor{darkblue}{rgb}{0,0,.7}
@@ -61,11 +62,10 @@
 \newcommand\TeilVon{\mathrel{\raisebox{0.45ex}{$\mathfrak{3}$}}}
 \newcommand{\partof}{\subseteq}
 
-%\pagestyle{myheadings}
-%\markright{Dedekind, Second definition of the finite and infinite\hfill}
+% \pagestyle{myheadings}
+% \markright{Dedekind, Second definition of the finite and infinite\hfill}
 
-\usepackage{paracol}
-%\usepackage[landscape, total={8in, 8in}]{geometry}
+% \usepackage[landscape, total={8in, 8in}]{geometry}
 \usepackage[total={8in, 10in}]{geometry}
 
 % \usepackage{showframe}
@@ -74,6 +74,7 @@
 % \newcommand{\sref}[1]{(\underline{\ref{#1}})}% with ()
 \newcommand{\sref}[1]{\underline{\ref{#1}}}% without ()
 
+\usepackage{paracol}
 
 \begin{document}
 \hypersetup{pageanchor=false}
@@ -324,10 +325,9 @@ $m\,$ von $a'b\,$, $b'a\,$, so folgt aus dem vorhergehenden Satz
 \sref{gthm19}, dass $m$ verschieden von $b$ und von $a$ ist; mithin muss
 \sref{gthm11} das Bild $m'$ ebenfalls gemeinsames Element von $a'b$ und $b'a$ sein.
 
-Bezeichnet man daher
-mit $M$ das System aller solcher Elemente $m$, so ist $M' \TeilVon M$, also
-$M = S$. Dies ist aber unmöglich, weil $a, b$ Elemente von $S$, aber nicht
-Elemente von $M$ sind. Also ist unser Satz wahr.
+Bezeichnet man daher mit $M$ das System aller solcher Elemente $m$, so ist
+$M' \TeilVon M$, also $M = S$. Dies ist aber unmöglich, weil $a, b$ Elemente von
+$S$, aber nicht Elemente von $M$ sind. Also ist unser Satz wahr.
 \end{satz}
 
 \begin{satz}\label{gthm21}
@@ -386,8 +386,8 @@ wenigstens zwei verschieden sind.
 \end{zusatz}
 
 \begin{satz}\label{gthm25}
-Sind $a$, $b$, $c$ verschieden, so tritt einer und nur einer der beiden folgenden
-Fälle ein: Entweder ist
+Sind $a$, $b$, $c$ verschieden, so tritt einer und nur einer der beiden
+folgenden Fälle ein: Entweder ist
 \begin{gather*}
     b'c = b'a + a'c, \quad c'a = c'b + b'a, \quad a'b = a'c + c'b \\
     c'b = c'a - a'b, \quad a'c = a'b - b'c, \quad b'a = b'c - c'a
@@ -424,12 +424,12 @@ $b'a + a'c \TeilVon b'c$, $c'b + b'a \TeilVon c'a$, $a'c + c'b \TeilVon a'b$.
 
 Läge nun z. B. ein Element von $b'c$ weder in $b'a$, noch in $a'c$,
 so wäre es (nach \sref{gthm23}) gemeinsames Element von $b'c$, $a'b$, $c'a$, was
-(nach \sref{gthm24}) unmöglich ist; mithin ist $b'c \TeilVon b'a + a'c$, also auch
-$b'c = b'a + a'c$, und ebenso folgt $c'a = c'b + b'a$, $a'b = a'c + c'b$.
+(nach \sref{gthm24}) unmöglich ist; mithin ist $b'c \TeilVon b'a + a'c$, also
+auch $b'c = b'a + a'c$, und ebenso folgt $c'a = c'b + b'a$, $a'b = a'c + c'b$.
 
 Hätten nun z. B. $b'a$, $a'c$ ein gemeinsames Element, so wäre dasselbe
-auch gemeinsames Element von $b'c$, $c'a$, $a'b$, was (nach \sref{gthm24}) nicht
-der Fall ist. Aus $S = b'c + c'b$ folgt endlich $S = b'a + a'c + c'b$,
+auch gemeinsames Element von $b'c$, $c'a$, $a'b$, was (nach \sref{gthm24})
+nicht der Fall ist. Aus $S = b'c + c'b$ folgt endlich $S = b'a + a'c + c'b$,
 womit unser Satz vollständig bewiesen ist.
 \end{satz}
 
@@ -501,19 +501,18 @@ Der Durchschnitt der Strecken $as$, $bs$, $cs$, ... ist selbst eine dieser Strec
 Zum Beweise schicke man folgenden Hilfssatz voraus:
 
 \begin{hilfssatz}\label{hilfssatz1}
-Ist $hs$ echter Teil von $as$, und $k$ das Element,
-dessen Bild $k' = h$ ist, so ist $hs$ auch echter Teil von $ks$, und
-zugleich ist $ks \TeilVon as$.
+Ist $hs$ echter Teil von $as$, und $k$ das Element, dessen Bild $k' = h$ ist,
+so ist $hs$ auch echter Teil von $ks$, und zugleich ist $ks \TeilVon as$.
 \Beweis
-Wäre $k = s$, so wäre $hs = s's = S$, während doch
-$hs$ echter Teil von $as$, also auch von $S$ ist. Da also $k$ verschieden
-von $s$ ist, so ist (nach \sref{gthm18}) $ks = [k] + hs$ und (nach \sref{gthm19})
-$k$ nicht in $hs$ enthalten, also $hs$ echter Teil von $ks$. Da $hs$ echter Teil
-von $as$ ist, so sei $as = M + hs$, wo $M$ das System aller Elemente $m$ von
-$as$, die außerhalb $hs$ liegen und also auch von $s$ verschieden sind.
-Daraus folgt $M' \TeilVon as$, und da offenbar $M'$ nicht Teil von $M$ sein
-kann (weil $M$ nicht $= S$ ist), so muss es in $M$ ein Element $m$ geben, dessen
-Bild $m'$ außerhalb $M$, also in $hs$ liegt, woraus $m's \TeilVon hs$ folgt.
+Wäre $k = s$, so wäre $hs = s's = S$, während doch $hs$ echter Teil von $as$,
+also auch von $S$ ist. Da also $k$ verschieden von $s$ ist, so ist (nach \sref{gthm18})
+$ks = [k] + hs$ und (nach \sref{gthm19}) $k$ nicht in $hs$ enthalten, also $hs$
+echter Teil von $ks$. Da $hs$ echter Teil von $as$ ist, so sei $as = M + hs$,
+wo $M$ das System aller Elemente $m$ von $as$, die außerhalb $hs$ liegen und
+also auch von $s$ verschieden sind. Daraus folgt $M' \TeilVon as$, und da
+offenbar $M'$ nicht Teil von $M$ sein kann (weil $M$ nicht $= S$ ist), so
+muss es in $M$ ein Element $m$ geben, dessen Bild $m'$ außerhalb $M$, also
+in $hs$ liegt, woraus $m's \TeilVon hs$ folgt.
 \end{hilfssatz}
 
 \begin{quote}
@@ -540,9 +539,9 @@ Da $s's = S$, also $T \TeilVon s's$ ist (\sref{gthm15}), so gibt es mindestens
 ein Element $a$, das der Bedingung $T$ as genügt. Ist $A$ das System aller dieser
 Elemente $a$, so ist (nach \sref{gthm28}) der Durchschnitt aller ihnen entsprechenden
 Strecken eine Strecke $s_1s$, wo $s_1$ ein völlig bestimmtes Element von $S$ ist.
-Nach dem Begriffe eines Durchschnitts hat $s_1$ die Eigenschaft 1., aber auch die
-Eigenschaft 2., weil $T$ ein gemeinsamer Teil aller $as$, mithin auch Teil ihres
-Durchschnitts $s_1s$ ist. Ist $s_1 = s$, also $s_1s = ss = [s]$, so folgt aus 2.,
+Nach dem Begriffe eines Durchschnitts hat $s_1$ die Eigenschaft 1.\, aber auch die
+Eigenschaft 2.\, weil $T$ ein gemeinsamer Teil aller $as$, mithin auch Teil ihres
+Durchschnitts $s_1s$ ist. Ist $s_1 = s$, also $s_1s = ss = [s]$, so folgt aus 2.\,
 dass $T$ aus dem einzigen Elemente $s$ besteht; und umgekehrt, wenn $s$ in $T$
 liegt und das einzige Element von $T$ ist, so ist $T = [s] = ss]$, also nach 1.\
 auch $s_1s \TeilVon ss$, mithin $s_1 = s$; in diesem Falle hat daher $s_1$ die
@@ -633,8 +632,8 @@ endlich, wenn es eine Abbildung von $S$ in sich selbst gibt, durch welche kein
 echter Teil von $S$ in sich selbst abgebildet wird; im entgegengesetzten Falle
 heißt $S$ ein unendliches System\grq{}.
 
-\hspace{12pt} Nimmt man aber an, dass man die natürliche Zahlenreihe und ihre Gesetze
-schon vollständig kennt, und
+\hspace{12pt} Nimmt man aber an, dass man die natürliche Zahlenreihe und ihre
+Gesetze schon vollständig kennt, und
 \end{quote}
 
 \newpage
@@ -645,20 +644,20 @@ so verwandelt sich diese Definition in einen Satz, der sich so beweisen lässt:
 
 \hspace{12pt} Es sei $\phi$ eine Abbildung eines Systems $S$ in sich selbst, durch
 welche kein echter Teil von $S$ in sich selbst abgebildet wird. Das Bild eines
-Elementes $a$ oder eines Teiles $A$ von $S$ bezeichne ich mit $a$ oder $A$ (viel
-natürlicher als $\phi(a)$ oder $\phi(A)$). Ist $a$ irgendein Element von $S$, so
-sind auch alle Bilder Elemente von $S$, also ist auch das System $A$ aller dieser
+Elementes $a$ oder eines Teiles $A$ von $S$ bezeichne ich mit $a\phi$ oder $A\phi$
+(viel natürlicher als $\phi(a)$ oder $\phi(A)$). Ist $a$ irgendein Element von $S$,
+so sind auch alle Bilder Elemente von $S$, also ist auch das System $A$ aller dieser
 Bilder ein Teil von $S$,
 \[
 	a\phi, a\phi^2= (a\phi)\phi \ldots, a\phi^{n+1} = (a\phi^n)\phi \ldots
 \]
-und da $A\phi$  das System aller Bilder also ein Teil von $A$ ist,
+und da $A\phi$ das System aller Bilder also ein Teil von $A$ ist,
 \[
 	(a\phi) \phi = a\phi^2, (a\phi^2)\phi = a\phi^3,
 \]
 so wird $A$ durch $\phi$ in sich selbst abgebildet; und folglich ist $A = S$.
 Mithin ist $a$ auch Element von $A$,  es gibt also eine kleinste natürliche Zahl
-$n$, die der Bedingung
+$n$, die der Bedingung%
 \[
 	a\phi^n = a
 \]
@@ -667,38 +666,39 @@ genügt. Dann ist $S$ das System der $n$ Elemente
 	a\phi,a\phi^2,\ldots a\phi^n
 \]
 und diese sind voneinander verschieden. Denn zufolge der Definition von $n$ ist das
-letzte Element verschieden von allen vorhergehenden. Wäre ferner $1 \leq r<s < n$
+letzte Element verschieden von allen vorhergehenden. Wäre ferner $1 \leq r<s < n$%
 \[
 	a\phi^r = a\phi^s
 \]
-und so wäre also
+so wäre
 \[
 	(a\phi^r)\phi^{n-s} = (a\phi^s) \phi^{n-s}
 \]
 also
 \[
-	a\phi^{r+n-s} = a\phi^n=a
+	a\phi^{r+n-s} = a\phi^n = a
 \]
-obgleich $1<r+n-s<n$. Dass endlich $S$ keine anderen als diese $n$ Elemente enthält,
-folgt aus $a\phi^{m + n} = a\phi^m$. Also ist wirklich $S$ ein endliches System
-(im üblichen Sinne), und zugleich ergibt sich, dass $\phi$ eine zyklische Permutation
-der $n$ Elemente von $S$, also auch eine ähnliche (d. h. eindeutig umkehrbare)
-Abbildung ist.
+obgleich $1 < r + n - s < n$. Dass endlich $S$ keine anderen als diese $n$ Elemente
+enthält, folgt aus $a\phi^{m + n} = a\phi^m$. Also ist wirklich $S$ ein endliches
+System (im üblichen Sinne), und zugleich ergibt sich, dass $\phi$ eine zyklische
+Permutation der $n$ Elemente von $S$, also auch eine ähnliche (d. h. eindeutig
+umkehrbare) Abbildung ist.
 
 \hspace{12pt} Umgekehrt, besteht ein (im üblichen Sinne) endliches System $S$ aus
 $n$ verschiedenen Elementen
 \[
 	a_1, a_2 \ldots a_{n-1}, a_n
 \]
-und definiert man eine Abbildung von $S$ durch
+und definiert man eine Abbildung $\phi$ von $S$ durch
 \[
-a_n\phi = a_1, a_r\phi=a_{r+1}
+    a_n\phi = a_1, a_r\phi = a_{r+1}
 \]
-für $1\leq r<n$, so ist $S' = S$, also eine Abbildung $\phi$ von $S$ in sich selbst,
-und man zeigt leicht, dass kein echter Teil von $S$ in sich selbst abgebildet wird.
-Denn wenn ein Teil $A$ von $S$ durch  in sich selbst abgebildet wird und ein Element
-$a$ enthält, so muss $A$ auch alle Elemente $a\phi, a\phi^2, a\phi^3, \ldots\ $,
-also alle Elemente von $S$ enthalten, mithin $= S$ sein. W.z.b.w.\grqq{}
+für $1 \leq r < n$, so ist $S' = S$, also $\phi$ eine Abbildung von $S$ in sich
+selbst, und man zeigt leicht, dass kein echter Teil von $S$ in sich selbst
+abgebildet wird. Denn wenn ein Teil $A$ von $S$ durch $\phi$ in sich selbst
+abgebildet wird und ein Element $a$ enthält, so muss $A$ auch alle Elemente
+$a\phi, a\phi^2, a\phi^3, \ldots\ $, also alle Elemente von $S$ enthalten,
+mithin $= S$ sein. W.z.b.w.\grqq{}
 \end{quote}
 
 \vspace{-20pt} \begin{flushright} \textbf{Noether.}\end{flushright}
@@ -1277,7 +1277,7 @@ no proper part of $S$ is mapped into itself. I denote the image of an element $a
 or a part $A$ of $S$ with $a\phi$ or $A\phi$ (much more natural than $\phi(a)$
 or $\phi(A)$). If $a$ is any element of $S$, then all the images are elements of
 $S$, thus the system $A$ of all these images is also a part of $S$,
-\vspace{14pt}
+\vspace{16pt}
 \[
 	a\phi, a\phi^2= (a\phi)\phi \ldots, a\phi^{n+1} = (a\phi^n)\phi \ldots
 \]
@@ -1285,7 +1285,7 @@ and since $A\phi$ is the system of all images is also a part of $A$,
 \[
 	(a\phi) \phi = a\phi^2, (a\phi^2)\phi = a\phi^3,
 \]
-then $A$ is mapped into itself by $\phi$; and consequently $A = S$. Therefore a
+then $A$ is mapped into itself by $\phi$; and consequently $A = S$. Therefore $a$
 is also an element of $A$, so there is a smallest natural number $n$, that
 satisfies the condition
 \[
@@ -1297,7 +1297,7 @@ Then $S$ is the system of $n$ elements
 \]
 and these are different from each other.
 For according to the definition of $n$, the last element is different from all
-previous ones. Would also be $1 \leq r<s < n$ and
+previous ones. Assuming further $1 \leq r<s < n$ and
 \[
 	a\phi^r = a\phi^s
 \]
@@ -1328,11 +1328,11 @@ for $1\leq r<n$, then $S' = S$, so $\phi$ is a mapping from $S$ into itself, and
 one easily shows that no proper part of $S$ is mapped into itself. Because if
 a part $A$ of $S$ is mapped by $\phi$ into itself and contains an element $a$,
 then $A$ must also contain all elements $a\phi, a\phi^2, a\phi^3, \ldots \ $, i.e.,
-all elements of $S$, and therefore $= S$. Qed.''
+all elements of $S$, and therefore be $= S$. Qed.''
 \end{quote}
 
 \begin{flushright}\textbf{Noether.}\end{flushright}
 
-
 \end{paracol}
+
 \end{document}
