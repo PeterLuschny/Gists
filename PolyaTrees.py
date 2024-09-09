@@ -1,4 +1,5 @@
 import time
+from typing import Callable
 
 class Timer:
     def __init__(
@@ -27,6 +28,16 @@ class Timer:
         return elapsed_time
 
 
+def Benchmark(T: Callable[[int, int], int]) -> list[float]:
+    B: list[float] = []
+    for s in [16, 32, 64, 128, 256]:
+        t = Timer(str(s))
+        t.start()
+        [[T(n, k) for k in range(n + 1)] for n in range(s)]
+        B.append(t.stop())
+    return [B[1]/B[0], B[2]/B[1], B[3]/B[2], B[4]/B[3]]
+
+
 """ Polya Trees
     [0] [0]
     [1] [0, 1]
@@ -40,10 +51,14 @@ class Timer:
     [9] [0, 0, 1, 22, 98, 191, 252, 278, 285, 286]
 """
 
-from functools import cache
+from functools import cache, lru_cache
+
+# polyatree ------------------------------------------
+# https://codegolf.stackexchange.com/questions/275413/
+
 
 @cache
-def polyatree(n: int, k: int) -> int:
+def polya_tree(n: int, k: int) -> int:
     """
     Args:
         n, the number of vertices
@@ -55,27 +70,56 @@ def polyatree(n: int, k: int) -> int:
         number of rooted trees with n vertices where the
         level of a vertex is bounded by k.
     """
-    if k >  n: return polyatree(n, n)
+    if k >  n: return polya_tree(n, n)
     if k <= 0: return 0
     if n == 1: return 0 if k == 0 else 1
 
     def W(n: int, k: int, u: int, w: int) -> int: 
        q, r = divmod(u, w)
        if r != 0: return 0
-       return q * polyatree(k, n) * polyatree(q, n - 1)
+       return q * polya_tree(k, n) * polya_tree(q, n - 1)
 
     return sum(sum(W(k, i, n - i, j) 
            for i in range(1, n)) for j in range(1, n)) // (n - 1)
 
 
-def Benchmark() -> list[float]:
-    T: list[float] = []
-    for s in [16, 32, 64, 128]:
-        t = Timer(str(s))
-        t.start()
-        [[polyatree(n, k) for k in range(n + 1)] for n in range(s)]
-        T.append(t.stop())
-    return [T[1]/T[0], T[2]/T[1], T[3]/T[2]]
+# tree_count ------------------------------------------------
+# Jonathan Allan, https://codegolf.stackexchange.com/a/275420
 
 
-print(Benchmark())
+@lru_cache(maxsize=None)
+def tree_count(nodes: int, max_height: int) -> int:
+    if nodes == 1:
+        return int(max_height > 0)
+    return sum(sum(tree_count(i, max_height) * (m := (nodes - i) // d)
+                    * tree_count(m, max_height - 1)
+                    for d in range(1, nodes - i + 1)
+                    if (nodes - i) % d == 0
+                  ) for i in range(1, nodes)
+              ) // (nodes - 1)
+
+
+# Results  ------------------------------------
+
+if __name__ == "__main__":
+
+    print("polya_tree", Benchmark(polya_tree))
+    print("tree_count", Benchmark(tree_count))
+
+    """
+               16 0.0085 sec
+               32 0.1437 sec
+               64 1.5740 sec
+              128 24.4983 sec
+              256 392.6860 sec
+
+    polya_tree [16.8, 10.9, 15.6, 16.1]
+
+               16 0.0072 sec
+               32 0.0844 sec
+               64 0.8911 sec
+              128 10.8109 sec
+              256 140.7037 sec
+
+    tree_count [11.7, 10.6, 12.1, 13.0]
+    """
