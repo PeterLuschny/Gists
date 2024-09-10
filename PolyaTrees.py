@@ -1,9 +1,9 @@
 # Using Python 3.12.4
 
 import time
-from typing import Callable, Generator
+from typing import Callable
 
-class Timer:
+class StopWatch:
     def __init__(
         self,
         comment: str
@@ -30,14 +30,31 @@ class Timer:
         return elapsed_time
 
 
-def Benchmark(T: Callable[[int, int], int]) -> list[float]:
+def Benchmark(T: Callable[[int, int], int], 
+              offset:int = 4, 
+              size:int = 4
+    ) -> list[float]:
+    """Benchmark for functions computing lower triangular arrays.
+
+    Args:
+        T(n, k), function defined for n >= 0 and 0 <= k <= n.
+        offset > 0, the power of two where the test starts. Defaults to 4.
+        size, the length of test run. Defaults to 4.
+
+    Returns:
+        List of factors that indicate by what the computing time multiplies 
+        when the number of rows doubles.
+
+    Example:
+        Benchmark(lambda n, k: n**k)
+    """
     B: list[float] = []
-    for s in [16, 32, 64, 128, 256, 512]:
-        t = Timer(str(s))
+    for s in [2 << n for n in range(offset - 1, offset + size)]:
+        t = StopWatch(str(s))
         t.start()
         [[T(n, k) for k in range(n + 1)] for n in range(s)]
         B.append(t.stop())
-    return [B[i + 1] / B[i] for i in range(5)]
+    return [B[i + 1] / B[i] for i in range(size)]
 
 
 """ Polya Trees
@@ -88,8 +105,8 @@ def polya_tree(n: int, k: int) -> int:
 # Jonathan Allan, https://codegolf.stackexchange.com/a/275420
 
 @cache
-def divisors(n: int) -> Generator[int, None, None]:
-    return (d for d in range(n, 0, -1) if n % d == 0)
+def divisors(n: int) -> list[int]:
+    return [d for d in range(n, 0, -1) if n % d == 0]
 
 @cache
 def tree_count(nodes: int, max_height: int) -> int:
@@ -110,8 +127,8 @@ def tree_count(nodes: int, max_height: int) -> int:
 # gsitcia
 
 @cache
-def Divisors(n: int) -> Generator[int, None, None]:
-    return (d for d in range(n, 0, -1) if n % d == 0)
+def Divisors(n: int) -> list[int]:
+    return [d for d in range(n, 0, -1) if n % d == 0]
 
 @cache
 def TreeCount(nodes: int, max_height: int) -> int:
@@ -126,7 +143,6 @@ def TreeCount(nodes: int, max_height: int) -> int:
         for i in range(1, nodes)
     ) // (nodes - 1)
 
-
 @cache
 def TreeCount_1(nodes_i: int, next_height: int) -> int:
     return sum(d * TreeCount(d, next_height) for d in Divisors(nodes_i))
@@ -135,6 +151,12 @@ def TreeCount_1(nodes_i: int, next_height: int) -> int:
 # Results  ----------------------------------------
 
 if __name__ == "__main__":
+
+    for n in range(10):
+        print([tree_count(n, k) for k in range(n + 1)])
+
+    for n in range(10):
+        print([TreeCount(n, k) for k in range(n + 1)])    
 
     # print("polya_tree", Benchmark(polya_tree))
     print("tree_count", Benchmark(tree_count))
@@ -149,21 +171,19 @@ if __name__ == "__main__":
 
     polya_tree [16.8, 10.9, 15.6, 16.1]
 
-               16 0.0014 sec
-               32 0.0080 sec
-               64 0.0659 sec
-              128 0.4913 sec
-              256 3.7559 sec
-              512 31.3221 sec
+               16 0.0069 sec
+               32 0.0662 sec
+               64 0.6862 sec
+              128 4.8875 sec
+              256 47.5928 sec
 
-    tree_count [5.7, 8.2, 7.4, 7.6, 8.3]
+    tree_count [9.6, 10.4, 7.1, 9.7]
 
-               16 0.0016 sec
-               32 0.0089 sec
-               64 0.0672 sec
-              128 0.5700 sec
-              256 4.6278 sec
-              512 44.6065 sec
+               16 0.0013 sec
+               32 0.0108 sec
+               64 0.0918 sec
+              128 0.7788 sec
+              256 6.9301 sec
 
-    TreeCount  [5.6, 7.5, 8.5, 8.1, 9.6]
+    TreeCount  [8.5, 8.5, 8.5, 8.9]
     """
