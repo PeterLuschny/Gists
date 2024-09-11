@@ -6,21 +6,21 @@ from typing import Callable
 class StopWatch:
     def __init__(
         self,
-        comment: str
+        comment: str = "elapsed time"
     ) -> None:
         self.start_time = None
         self.text = comment
 
     def start(self) -> None:
-        """Start a new timer"""
+        """Start a new StopWatch"""
         if self.start_time is not None:
-            raise RuntimeError("Timer is running. First stop it.")
+            raise RuntimeError("Watch is running. First stop it.")
         self.start_time = time.perf_counter()
 
     def stop(self) -> float:
-        """Stop the timer, and report the elapsed time"""
+        """Stop the StopWatch, and report the elapsed time."""
         if self.start_time is None:
-            raise RuntimeError("Timer is not running.")
+            raise RuntimeError("Watch is not running.")
 
         elapsed_time = time.perf_counter() - self.start_time
         self.start_time = None
@@ -42,8 +42,8 @@ def Benchmark(T: Callable[[int, int], int],
         size, the length of test run. Defaults to 4.
 
     Returns:
-        List of factors that indicate by what the computing time multiplies 
-        when the number of rows doubles.
+        List of factors that indicate by what the computing time
+        multiplies when the number of rows doubles.
 
     Example:
         Benchmark(lambda n, k: n**k)
@@ -124,11 +124,20 @@ def tree_count(nodes: int, max_height: int) -> int:
 
 
 # TreeCount -----------------------------------------------------------
-# gsitcia
+# User gsitcia at the above link.
+# We added the border cases T(n, n) and T(n-1, n), which was commented by 
+# Jonathan Allan: "... the added overhead of the comparisons (performed 
+# for all but 1 node or 0 max height) outweighs the savings of the small 
+# number of pruned cases." 
+# Answer: For nodes = 1024 it saved in our setup about 3 sec.
 
 @cache
 def Divisors(n: int) -> list[int]:
     return [d for d in range(n, 0, -1) if n % d == 0]
+
+@cache
+def TreeCount_1(nodes_i: int, next_height: int) -> int:
+    return sum(d * TreeCount(d, next_height) for d in Divisors(nodes_i))
 
 @cache
 def TreeCount(nodes: int, max_height: int) -> int:
@@ -136,16 +145,16 @@ def TreeCount(nodes: int, max_height: int) -> int:
         return int(max_height > 0)
     if max_height == 0:
         return 0
+    if nodes - 1 == max_height:
+        return TreeCount(nodes, nodes - 2) + max_height - 1
+    if nodes == max_height: 
+        return TreeCount(nodes, nodes - 1) + 1
 
     next_height = max_height - 1
     return sum(
         TreeCount(i, max_height) * TreeCount_1(nodes - i, next_height)
         for i in range(1, nodes)
     ) // (nodes - 1)
-
-@cache
-def TreeCount_1(nodes_i: int, next_height: int) -> int:
-    return sum(d * TreeCount(d, next_height) for d in Divisors(nodes_i))
 
 
 # Results  ----------------------------------------
@@ -154,13 +163,11 @@ if __name__ == "__main__":
 
     for n in range(10):
         print([tree_count(n, k) for k in range(n + 1)])
+        print([TreeCount(n, k)  for k in range(n + 1)])
 
-    for n in range(10):
-        print([TreeCount(n, k) for k in range(n + 1)])    
-
-    # print("polya_tree", Benchmark(polya_tree))
-    print("tree_count", Benchmark(tree_count))
-    print("TreeCount ", Benchmark(TreeCount))
+    # print("polya_tree", Benchmark(polya_tree, 4, 4))
+    print("tree_count", Benchmark(tree_count, 4, 4))
+    print("TreeCount ", Benchmark(TreeCount,  4, 6))
 
     """
                16 0.0085 sec
@@ -179,11 +186,45 @@ if __name__ == "__main__":
 
     tree_count [9.6, 10.4, 7.1, 9.7]
 
-               16 0.0013 sec
+               16 0.0012 sec
                32 0.0108 sec
-               64 0.0918 sec
-              128 0.7788 sec
-              256 6.9301 sec
+               64 0.1052 sec
+              128 0.7198 sec
+              256 6.3722 sec
 
-    TreeCount  [8.5, 8.5, 8.5, 8.9]
+              512 71.4239 sec
+             1024 915.5698 sec
+
+    TreeCount  [8.9, 9.7, 6.8, 8.8, 11.2, 12.8]
+
+
+    ===========================================================
+    =================== M A P L E =============================
+    ===========================================================
+
+    restart;
+
+    div := n -> numtheory:-divisors(n):
+    H := proc(n, k) option remember; local d; 
+         add(d * T(d, k), d = div(n)) end: 
+
+    T := proc(n, k) option remember; local i; 
+         if n = 1 then ifelse(k > 0, 1, 0) else
+         add(T(i, k) * H(n - i, k - 1), i = 1..n - 1) / (n - 1)
+         fi end:
+
+
+    Tri := rows -> local n, k; 
+           seq(seq(T(n, k), k = 0..n), n = 0..rows):
+
+    gc(); CodeTools:-Usage(Tri(64)):
+    gc(); CodeTools:-Usage(Tri(128)):
+    gc(); CodeTools:-Usage(Tri(256)):
+    gc(); CodeTools:-Usage(Tri(512)):
+
+    memory used=18.29MiB,  real time=375.00ms, gc time=0ns
+    memory used=151.96MiB, real time=2.86s,    gc time=140.62ms
+    memory used=1.42GiB,   real time=24.16s,   gc time=1.56s
+    memory used=15.16GiB,  real time=3.81m,    gc time=35.25s
+
     """
