@@ -56,8 +56,9 @@ def gcd(a: int, b: int, trac: bool = False) -> int:
     # It's very counterintuitive when analyzing Stein's algorithm as described 
     # by Knuth that the number of iterations for the right-hand value is larger, 
     # often many times larger, than the number of iterations required for the 
-    # left-hand value. One can also understand this as a very natural optimization 
-    # being forgotten. We address this with the above assignment.
+    # left-hand value. One can also understand this as an optimization. 
+    # We address this with the above assignment. See also the table of counts
+    # in the test section below.
 
     # CTZ - Count Trailing Zeros of x.
     # Counting trailing zeros is relevant because the binary GCD algorithm
@@ -69,9 +70,10 @@ def gcd(a: int, b: int, trac: bool = False) -> int:
     
     # This quantity is used below in the form 
     # a = a >> ((a & -a).bit_length() - 1). 
-    # It's not immediately obvious to a common man what this bit sh** and shiffting
-    # means, but it's quite trivial. It's the function odd := n -> n*2^(-ordp(n, 2)),
-    # where ordp(n, 2) is the 2-adic order of n, or, to put it in plain English, 
+    # It's not immediately obvious what this bit-fiddling means.
+    # In the more civilized language of a CAS, for example with Maple, 
+    # one would write a := odd(a), where odd := n -> n * 2^(-ordp(n, 2)),
+    # and ordp(n, 2) is the 2-adic order of n. To put it in plain English, 
     # it is the odd part of n (OEIS A000265).
 
     # az = CTZ of a.
@@ -93,36 +95,31 @@ def gcd(a: int, b: int, trac: bool = False) -> int:
     # The loop ends when 'a' and 'b' are equal.
     while b != a:
 
-        if trac:
-            print(a, b)
+        # For tracing and debugging only. Remove in production.
+        if trac: print(a, b)
         count += 1
 
-        # Difference 'd' will be odd (odd - odd = even).
-        d = a - b if a > b else b - a
-
-        # Calculate CTZ of d for the next iteration's 'a'.
-        # (d & -d) isolates LSB of abs(a - b).
-        dz = (d & -d).bit_length() - 1
-
+        # Differences will be odd (odd - odd = even).
         # The new 'b' for the next iteration is min of
         # the current odd 'a' and odd 'b'.
-        b = a if a < b else b
+        if a < b:
+            b, a = a, b - a 
+        else:
+            a = a - b
 
-        # The new 'a' for the next iteration is d with
+        # Calculate the CTZ of 'a' for the next iteration's 'a'.
+        # (a & -a) isolates LSB of abs(a - b).
+        # The new 'a' for the next iteration is a with
         # removed trailing zeros to make it odd.
-        a = d >> dz
-
-    # print(f"Number of iterations was {count}.")
+        a = a >> ((a & -a).bit_length() - 1)
 
     # Restore common factors of 2 that were removed.
     return a << shift
-
 
 """
     Algorithm B as given by Don Knuth in TAOCP, volume 2, section 4.5.2, 
     page 321 of the second edition.
 """
-
 
 def gcd_taocp(u: int, v: int, trac: bool = False) -> int:
     global count
@@ -252,9 +249,9 @@ if __name__ == "__main__":
     print()
 
     """
-    [0, 0, 0, 2, 0, 4, 4, 12, 2, 8, 10, 22, 10, 28, 24, 30, 10, 32, 22, 42, 24, 38, 46, 68, 26, 58, 58, 68, 54, 94, 62, 102, 34, 68, 76, 74, 52, 116, 94, 112, 62, 120, 84, 146, 102, 122, 140, 166, 70, 154, 126, 154, 128, 188, 144, 182, 124, 178, 192, 222, 138, 244]
+    [0, 0, 0, 2, 0, 4, 4, 12, 2, 8, 10, 22, 10, 28, 24, 30, 10, 32, 22, 42, 24, 38, 46, 68]
     
-    [0, 0, 1, 4, 4, 9, 10, 18, 12, 19, 21, 33, 24, 41, 40, 45, 32, 54, 43, 65, 50, 62, 72, 92, 58, 87, 89, 98, 89, 124, 98, 134, 80, 112, 117, 120, 99, 159, 140, 156, 116, 170, 135, 194, 158, 172, 196, 220, 137, 211, 187, 214, 195, 249, 210, 242, 199, 243, 263, 287, 216, 311]
+    [0, 0, 1, 4, 4, 9, 10, 18, 12, 19, 21, 33, 24, 41, 40, 45, 32, 54, 43, 65, 50, 62, 72]
     """
 
     print(
@@ -271,11 +268,23 @@ if __name__ == "__main__":
     """ To trace the computations call the functions with 
     a third parameter set to 'True'. """
 
-    print("\nTracing the gcd of 40902 and 24140 in our version:")
+    print("\nTracing the gcd of 40902 and 24140 with our version:")
     gcd(40902, 24140, True)
-    print("\nTracing the gcd of 40902 and 24140 in Knuth's TAOCP:")
+    print("Tracing the gcd of 40902 and 24140 with Knuth's TAOCP:")
     gcd_taocp(40902, 24140, True)
     print()
+    
+    from math import factorial
+    f = factorial(1000)
+    g = 2**32 + 1
+    print("Tracing the gcd of factorial(1000) and 2**32 + 1 with our version:")
+    count = 0
+    print(f"gcd = {gcd(f, g)}, iterations: {count}")
+    print("Tracing the gcd of factorial(1000) and 2**32 + 1 with Knuth's TAOCP:")
+    count = 0
+    print(f"gcd = {gcd_taocp(f, g)}, iterations: {count}")
+    print()
+
 
     def AK383441(n: int) -> list[int]:
         global count
