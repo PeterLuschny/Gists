@@ -1,0 +1,318 @@
+\documentclass[12pt]{article}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+% 464 Session of the physical-mathematical class of May 29, 1913.
+
+\title{On Markoff's Numbers}
+
+\author{by G. Frobenius.}
+\date{}
+
+\begin{document}
+\maketitle
+Andrej Markoff, in \textit{Math. Annalen, vols. 15 and 17}, published two works, \textit{Sur les formes quadratiques binaires indéfinies}. In the indefinite form
+$$
+\psi=(a, b, c)=a x^{2}+b x y+c y^{2}
+$$
+the coefficients $a, b, c$ are arbitrary real numbers, and the variables $x, y$ are integers. The discriminant of $\psi$ is $D=b^{2}-4 a c$, and the lower bound of all values of the absolute value $|\psi|$ of $\psi$ is $M$. For the form $k \psi$, these quantities have the values $k^{2} D$ and $k M$.  Markoff proves the following.
+
+For all indefinite forms $\psi$,
+$$
+\text{ lim. inf. } \frac{V \sqrt{D}}{M}=3 .
+$$
+If $\sqrt{D}<3 M$, then $\psi$, multiplied by a suitable factor $k$, is equivalent (properly or improperly) to a form
+$$
+\varphi=p x^{2}+(3 p-2 q) x y+(r-3 q) y^{2}
+$$
+Here $p, q, r$ are positive integers, and $p$, together with two other integers $p_{1}$ and $p_{2}$, satisfies the indeterminate equation
+$$
+p^{2}+p_{1}^{2}+p_{2}^{2} = 3 p\, p_{1}\, p_{2},
+$$
+$\pm q$ is the absolute smallest remainder of $\frac{p_{1}}{p_{2}}(\bmod p)$, and $r$ is determined by the equation $p r-q^{2}=1$. For this form $\varphi$, we have
+$$
+D=9 p^{2}-4, \quad M=p, \quad \frac{\sqrt{D}}{M}=3 \sqrt{1-4: 9 p^{2}}<3 .
+$$
+The form $\varphi$ is properly equivalent to the form $-\varphi$, and even to each of the four forms
+$$
+\pm\left(p x^{2}-2 q x y+r y^{2}\right) \pm 3 y(p x-q y) .
+$$
+If the ratios of the coefficients of $\psi$ are not rational, then $M \leqq \frac{1}{3} \sqrt{D}$ always holds.
+
+Despite these extraordinarily remarkable and important results, these difficult investigations seem to be little known. Even Minkowski does not mention them in his treatment of a related question (\textit{Math. Annalen, vol. 54, p. 92}). To my knowledge, Hurwitz (\textit{Über eine Aufgabe der unbestimmten Analysis, Archiv der Math. u. Phys., series 3, vol. 11, p. 185}) is the only one who has written about the Markoff equation. The large but so far little-used theory of the reduction of indefinite binary quadratic forms, which Lagrange created and Gauss perfected, finds extensive application in the following developments.
+
+Markoff proves the results using continued fractions. I have succeeded (§ 4) in deriving the properties of the form $\varphi$ without this tool, but not in proving that the forms equivalent to the forms $\varphi$ are the only ones for which $\sqrt{D}<3M$. In the second part of my work, I develop the explicit representation of the Markoff numbers $p$ and the corresponding numbers $q$ and $r$ through the partial denominators of a continued fraction. This leads to (§ 11) remarkable relationships with the concept of the characteristic of a rational number created by Christoffel (\textit{Lehrsätze über arithmetische Eigenschaften der Irrationalzahlen, Annali di Mat., ser. II, vol. 15, p. 270}).
+
+I will refer to this work as C., Markoff's second work (\textit{Math. Annalen, vol. 17, p. 379}) as M., Hurwitz's work as H., and my work (\textit{Über die Reduktion der indefiniten binären Formen, in these proceedings, p. 202}) as F.
+
+\bigskip
+
+\centerline{§ 1.}
+
+\bigskip
+
+I call the indeterminate equation
+
+\begin{equation*}
+a^{2}+b^{2}+c^{2}=3 a b c \tag{1.}
+\end{equation*}
+the \textit{Markoff equation}, and any positive integer $p$ that appears in one of its solutions a \textit{Markoff number}.
+
+\bigskip
+
+\textit{I. A positive integer $p$ is called a Markoff number if $-p^{2}$ can be represented by the principal form of the discriminant $9 p^{2}-4$.}
+
+\bigskip
+
+Following Mr. Hurwitz, I first consider the more general equation
+\begin{equation*}
+a^{2}+b^{2}+c^{2}=k \,a\, b\, c \tag{2.}
+\end{equation*}
+where all signs represent positive integers.
+Depending on whether $a$ is even or odd, $a^{2} \equiv 0$ or $1(\bmod 4)$. So, if $k$ is even, $a, b, c$ must all be even. Any other assumption about their remainders $(\bmod 2)$ leads to a contradiction. However, if $a=2^{n} x, b=2^{n} y, c=2^{n} z$, where $x, y, z$ are not all even, then $x^{2}+y^{2}+z^{2}=2^{n} k x y z$. Since this equation requires that $x, y, z$ be all even, it follows that $k$ cannot be even.
+
+Depending on whether $a$ is divisible by 3 or not, $a^{2}=0$ or 1 $(\bmod 3)$. So if $k$ is not divisible by 3, $a=3 x, b=3 y, c=3 z$ must all be divisible by 3. Any other assumption proves to be inadmissible. Then $x^{2}+y^{2}+z^{2}=3 k x y z$.
+
+After dealing thus with the case $k=2$, and reducing $k=1$ to $k=3$, let $k \geq 3$. If $b=c$, then $a=b d$ is divisible by $b$ and $d^{2}+2=k b d$. Therefore, $d=1$ or 2, a divisor of 2. In both cases, $3=k b$, so $k=3, b=c=1, a=d$. So, if $k>3$, no two of the numbers $a, b, c$ can be equal. For $k=3$, I will call the two solutions $1,1,1$ and $2,1,1$ \textit{singular}. In every other solution, $a, b, c$ are different. Many of the results to be developed do not apply to these two solutions, which I will not always mention specifically.
+
+If the equation $f(x)=x^{2}+b^{2}+c^{2}-k b c x=0$ has the two roots $a$ and $a^{\prime}$, then $a+a^{\prime}=k b c$, $a a^{\prime}=b^{2}+c^{2}$. So $a^{\prime}$ is also a positive integer and $a^{\prime}, b, c$ is a new solution of equation (2.). Mr. Hurwitz calls it a neighboring solution to the solution $a, b, c$. If $a>b>c$, then $f(b)<3 b^{2}-k c b^{2} \leq 0$. Therefore $b$ lies between the two roots $a$ and $a^{\prime}$, and we have $a>b>a^{\prime}$. If the product $a b c$ is called the weight of the solution $a, b, c$, then the new solution therefore has a smaller weight than the original. This procedure of forming new solutions of smaller weight can always be continued if the three numbers of the solution are different. Consequently, $k$ cannot be greater than 3. However, if $k=3$, it must eventually lead to a singular solution.
+
+Therefore, equation (2.) is only solvable for $k=3$ and $k=1$, and the second case can be reduced to the first by substituting $a=3 x, b=3 y, c=3 z$.
+
+Three numbers that satisfy equation (I.) have no common divisor (H. p. 194). For if $a=d x, b=d y, c=d z$, then $x^{2}+y^{2}+z^{2}=3 d x y z$, and therefore $d=1$. Consequently, any two of the numbers $a, b, c$ are also coprime, and the representation mentioned in I. is always a proper one. In particular, at most one of them can be even. However, $a$ cannot be divisible by 4. Otherwise, $0 \equiv 3 a b c=a^{2}+b^{2}+c^{2}=0+1+1(\bmod 4)$. Since
+\begin{equation*}
+a+a^{\prime}=3 b c, \quad a a^{\prime}=b^{2}+c^{2} \tag{3.}
+\end{equation*}
+every odd prime that divides $a$ must be of the form $4n+1$. This implies:
+
+\bigskip
+
+II. \textit{If $p$ is a Markoff number, then either $p \equiv 1(\bmod 4)$ or $p \equiv 2(\bmod 8)$.}
+
+\bigskip
+
+From the equations
+$$
+a^{2}+(b-c)^{2}=b c(3 a-2), \quad a^{2}+(b+c)^{2}=b c(3 a+2)
+$$
+it follows:
+
+\bigskip
+
+III. \textit{If $p$ is a Markoff number, then every odd prime factor of $p, 3p-2$ and $3p+2$ is of the form $4n+1$.}
+
+\bigskip
+
+However, numbers like 37 or 61, which are not Markoff numbers, also possess this property.
+
+The singular solution 1,1,1 has only one neighboring solution 2, 1, 1. This one has, in addition to that, a second 5,2,1. Any other solution $a, b, c$ has three different neighboring solutions (M. p. 397)
+$$a^{\prime}, b, c \quad a, b^{\prime}, c \quad a, b, c^{\prime},$$
+where
+$$
+(4.) \quad a^{\prime}=3 b c-a, \quad b^{\prime}=3 a c-b, \quad c^{\prime}=3 a b-c.
+$$
+If $a$ is the largest of the three numbers $a, b, c$, then
+$$
+a^{\prime}<a, \quad b^{\prime}>a, \quad c^{\prime}>a
+$$
+and even $a^{\prime}$ is smaller than the larger of the two numbers $b$ and $c$. Of the three neighboring solutions $a, b, c$, one, $a^{\prime}, b, c$, has a smaller weight, and each of the other two has a larger weight. For a solution $L$, there is one and only one neighboring solution $L_{1}$ of smaller weight, and for this one, there is such a solution $L_{2}$, and so on. The series of these solutions $L, L_{1}, L_{2}, \cdots$ must, according to the above statements, end with $5,2,1 \quad 2,1,1 \quad 1,1,1$. In the reverse way, one arrives from 1,1,1 at every solution. But if one wants to ascend from a solution L to solutions of a higher weight, this can be done in two different ways at each point.
+
+When applying this procedure to a given solution $p, a, b$, the restriction of keeping the number $p$ fixed can be imposed. I will call all the solutions obtained this way a \textit{chain of solutions} (cf.  9). It is completely determined by each of its members. It contains one and only one solution in which $p$ is the largest of the three numbers. The question of whether a Markoff number $p$ can correspond to two different chains, i.e., whether $p$ can be the largest number in two solutions $p, a, b$ and $p, c, d$, is to date undecided.
+
+From (3.) it follows
+$$
+\left(a-a^{\prime}\right)^{2}=9 b^{2} c^{2}-4\left(b^{2}+c^{2}\right)=4 b^{2} c^{2}+\left(b^{2} c^{2}-4\right)+4\left(b^{2}-1\right)\left(c^{2}-1\right) .
+$$
+If $a$ is the largest of the numbers $a, b, c$, and $b$ and $c$ are not both 1, then (cf. (3.))
+$$
+a-a^{\prime}>2 b c, \quad 3 b c>a>2 b c .
+$$
+If $b>c$, then in the solution $a^{\prime}, b, c$, the largest number is $b$. Therefore $b>2a^{\prime}c$ and
+
+\begin{equation*}
+a^{\prime}<\frac{b}{2 c}, \quad a>3 b c-\frac{b}{2 c}>\frac{5}{2} b c \quad(b>c), \tag{6.}
+\end{equation*}
+and also
+\begin{equation*}
+b>\frac{5}{2} a^{\prime} c>\frac{5}{2} c . \tag{7.}
+\end{equation*}
+
+Apart from the singular solutions, the neighboring solution 5,2,1 also forms an exception.
+
+\bigskip
+
+\centerline{§ 2.}
+
+\bigskip
+
+
+From the relation
+$$
+p^{2}+p_{1}^{2}+p_{2}^{2}=3 p p_{1} p_{2}
+$$
+we have concluded that any two of the three positive integers $p_{\kappa}$ are coprime. Therefore,
+
+\begin{equation*}
+\frac{p_{1}}{p_{2}} \equiv-\frac{p_{2}}{p_{1}} \quad(\bmod p) \tag{1.}
+\end{equation*}
+Let $\varepsilon= \pm 1$, and let
+\begin{align*}
+\varepsilon q \equiv \frac{p_{1}}{p_{2}} \equiv-\frac{p_{2}}{p_{1}} & (\bmod p), \\
+\varepsilon q_{1} \equiv \frac{p_{2}}{p} \equiv-\frac{p}{p_{2}} & \left(\bmod p_{1}\right),  \tag{2.}\\
+\varepsilon q_{2} \equiv \frac{p}{p_{1}} \equiv-\frac{p_{1}}{p} & \left(\bmod p_{2}\right),
+\end{align*}
+
+where $q_{\kappa}$ is between 1 and $p_{\kappa}-1$. Then
+$$
+p_{1}^{2}\left(1+q^{2}\right) \equiv p_{1}^{2}+p_{2}^{2} \equiv 0 \quad(\bmod p)
+$$
+Therefore, the equations
+\begin{equation*}
+\quad p r-q^{2}=1, \quad p_{1} r_{1}-q_{1}^{2}=1, \quad p_{2} r_{2}-q_{2}^{2}=1
+\tag{3}
+\end{equation*}
+determine three integers $r_{\kappa}$. For example (cf. § 5)
+
+\bigskip
+
+\begin{tabular}{rrrrrrrrrrrrr}
+$r=1$ & 2 & 5 & 13 & 29 & 34 & 89 & 169 & 194 & 233 & 433 & 610 & 985 \\
+$q=0$ & 1 & 2 & 5 & 12 & 13 & 34 & 70 & 75 & 89 & 179 & 233 & 408 \\
+$r=1$ & 1 & 1 & 2 & 5 & 5 & 13 & 29 & 29 & 34 & 74 & 89 & 169.
+\end{tabular}
+
+\bigskip
+
+Now, if $p$ is the largest of the three numbers $p_{\kappa}$, then
+
+\begin{align*}
+& p_{1} q_{2}-p_{2} \dot{q}_{1}=\varepsilon\left(p-3 p_{1} p_{2}\right)=-\varepsilon p^{\prime}, \\
+& p_{2} q-p q_{2}=\varepsilon p_{1},  \tag{4.}\\
+& p q_{1}-p_{1} q=\varepsilon p_{2} .
+\end{align*}
+
+For $p_{1} q_{2}-p_{2} q_{1}+\varepsilon p^{\prime}$ is divisible by $p_{1}$ and $p_{2}$, thus by $p_{1} p_{2}$, and is $\leqq p_{1}\left(p_{2}-1\right)-p_{2}+p^{\prime}<p_{1} p_{2}$, because $p^{\prime}$ is smaller than the larger of the two numbers $p_{1}$ and $p_{2}$. On the other hand, that number is $\geqq p_{1}-p_{2}\left(p_{1}-1\right)-p^{\prime} >-p_{1} p_{2}$.
+
+By adding equations (4.) multiplied by $p, p_{1}, p_{2}$ or by $q, q_{1}, q_{2}$ or by adding their squares, one arrives at the following relations:
+
+\begin{align*}
+p^{2}+p_{1}^{2}+p_{2}^{2} & =3 p p_{1} p_{2} \\
+p q+p_{1} q_{1}+p_{2} q_{2} & =3 q p_{1} p_{2} \\
+q^{2}+q_{1}^{2}+q_{2}^{2} & =3 r p_{1} p_{2}-1 \\
+p r+p_{1} r_{1}+p_{2} r_{2} & =3 r p_{1} p_{2}+2  \tag{5.}\\
+\frac{1}{3}\left(q r+q_{1} r_{1}+q_{2} r_{2}\right) & =p_{1} q_{2} r+\varepsilon q_{1}^{2}=p_{2} q_{1} r-\varepsilon q_{2}^{2} \\
+\frac{1}{3}\left(r^{2}+r_{1}^{2}+r_{2}^{2}\right) & =-p r_{1} r_{2}+p_{1} r r_{2}+p_{2} r r_{1}+3
+\end{align*}
+
+\medskip
+
+The last two, which are not used here, have only been added for the sake of completeness.
+
+If we set
+$$U_{x}=p_{x} u+q_{x} v+r_{x} w,$$
+we can summarize the 6 relations in the identical equation
+\begin{equation*}
+U^{2}+U_{1}^{2}+U_{2}^{2}+3 p U_{1} U_{2}-3 p_{1} U I_{2}-3 p_{2} U U_{1}=4 u w-v^{2}+9 w^{2}  \tag{6}
+\end{equation*}
+If we set
+
+\begin{equation*}
+P_{x}=\mu_{x} x^{2}-2 \eta_{x} x y+r_{x} y^{2} , \tag{7.}
+\end{equation*}
+it is therefore
+\begin{equation*}
+P^{2}+P_{1}^{2}+P_{2}^{2}+3 p P_{1} P_{2}-3 p_{1} P P_{2}-3 p_{2} P P_{1}=9 y^{4} . \tag{8.}
+\end{equation*}
+
+The first of relations (5.) can also be written in the form
+\begin{equation*}    
+p_{1}^{2}+p_{2}^{2}=p p^{\prime}, \quad p_{1} q_{1}+p_{2} q_{2}=q p^{\prime} , \quad p_{1} r_{1}+p_{2} r_{2}=\cdots r p^{\prime}+2,  \tag{9}
+\end{equation*}
+or summarized
+\begin{equation*}
+p_{1} P_{1}+p_{2} P_{3}=p^{\prime} P+2 y^{2}, \tag{10}
+\end{equation*}
+where $p^{\prime}==3 p_{1} p_{2}-p$. If $p>p_{1}>p_{2}$, the analogous formula for the neighboring solution $p_{1}, p_{2}, p^{\prime}$ of the Markoff equation is
+\begin{equation*}
+p_{\mathrm{a}} P_{\mathrm{a}}+p^{\prime} P^{\prime}=\left(3 p_{2} p^{\prime}-p_{1}\right) P_{1}+2 y^{2} . 
+\end{equation*}
+From these two equations, it follows that
+\begin{equation*}
+P^{\prime}=3 p_{1} P_{1}-P,  \quad \left(p>p_{1}>p_{2}\right) \tag{11}
+\end{equation*}
+or
+\begin{equation*}
+p^{\prime}=3 p_{1} p_{2}-p, \quad q^{\prime}=3 p_{3} q_{1}-q, \quad r^{\prime}=3 p_{2} r_{1}-r. \tag{12.}
+\end{equation*}
+The third equation (9.) in connection with the relations (4.) leads to the formula
+\begin{equation*}
+\left|\begin{array}{lll}
+p & p_{1} & p_{2}  \\
+q & q_{1} & q_{2} \\
+r & r_{1} & r_{2}
+\end{array}\right|=2 \varepsilon.  \quad \tag{13.}
+\end{equation*}
+If we square the equations (4.), we get, using the formulas (3.),
+\begin{align*}
+& p_{1} r_{2}+p_{2} r_{1}-2 q_{1} q_{2}=3 p^{\prime}, \\
+& p_{2} r+p r_{2}-2 q_{2} q=3 p_{1},  \tag{14.}\\
+& p r_{1}+p_{1} r-2 q q_{1}=3 p_{2}.
+\end{align*}
+Thus, the discriminant of the quadratic form 
+$u P+v P_{1}+w P_{2}$ of the variables $x$ and $y$ is equal to -4 times
+\begin{gather*}
+\left(p u+p_{1} v+p_{2} w\right)\left(r u+r_{1} v+r_{2} w\right)-\left(q u+q_{1} v+g_{2} w\right)^{2}  \tag{15.}\\
+=u^{2}+v^{2}+w^{2}+3\left(p^{\prime} v w+p_{1} w u+p_{2} u v\right)
+\end{gather*}
+This ternary form of $u, v, w$ (cf. (6.)) therefore has a determinant of 1, according to (13.). The Markoff equation
+$$
+a^{2}+b^{2}+c^{2}=3 a b c
+$$
+thus states that the ternary quadratic form
+\begin{equation*}
+u^{2}+v^{2}+w^{2}+3(a v w+b w u+c u v) \tag{16.}
+\end{equation*}
+has a determinant of 1.
+If we write relations (4.) as homogeneous linear equations between $p, p_{1}, p_{2}$, we can determine the ratios of these unknowns from any two of them. For example,
+\begin{align*}
+\varepsilon p-q_{2} p_{1}+\left(q_{1}-3 \varepsilon p_{1}\right) p_{2} &= 0, \\
+q_{2}p + \varepsilon p_{1} - q p_{2} &= 0,
+\end{align*}
+and therefore
+\begin{equation*}
+p: p_{1}: p_{2}=q q_{2}-\varepsilon\left(q_{1}-3 \varepsilon p_{1}\right): q_{2}\left(q_{1}-3 \varepsilon p_{1}\right)+\varepsilon q: p_{2} r_{2} .
+\end{equation*}
+
+In this way, we arrive at the formulas
+\begin{align*}
+p_{1} r-q q_{1}=-\varepsilon q_{2},\ & p r_{1}-q q_{1}=\varepsilon q_{2}+3 p_{2}, \\
+p_{2} r-q q_{2}=+\varepsilon q_{1},\ & p r_{2}-q q_{2}=-\varepsilon q_{1}+3 p_{1},  \tag{17.}\\
+p_{1} r_{2}-q_{1} q_{2}=+\varepsilon\left(q-3 p_{1} q_{2}\right),\ & p_{2} r_{1}-q_{1} q_{2}=-\varepsilon\left(q-3 p_{2} q_{1}\right) .
+\end{align*}
+
+Now we can also calculate the subdeterminants of (13.). For example,
+$$ (18.) q r_{1}-q_{1} r=\varepsilon r_{2}+3 q_{2}, \quad y_{2} r-q r_{2}=\varepsilon r_{1}-3 q_{1}, \quad q_{1} r_{2}-q_{2} r_{1}=\varepsilon\left(r-3 q_{1} q_{3}\right).
+$$
+
+\bigskip
+
+\centerline{§ 3.}
+
+\bigskip
+
+The forms $P_{1}$ and $P_{2}$ have the discriminant -4. Their simultaneous invariant is positive:
+\begin{equation*}
+\quad p_{1} r_{2}-2 q_{1} q_{2}+r_{1} p_{2}=-3 \varepsilon\left(p_{1} q_{2}-p_{2} q_{2}\right)  \tag{1.}
+\end{equation*}
+or
+\begin{equation*}
+p_{1} r_{2}-2 q_{1} q_{2}+r_{1} p_{2}=3\left|p_{1} q_{2}-p_{2} q_{1}\right| . \tag{2.}
+\end{equation*}
+
+\end{document}
