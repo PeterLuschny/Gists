@@ -102,33 +102,95 @@ bool in_fundamental_domain(int r, int c, int k, int n) {
 
 // Main counting function
 u64 knight_hamiltonian_paths(int k, int n) {
-    if (k > n) std::swap(k, n); // symmetry
+    if (k > n) std::swap(k, n);
 
     vector<u64> nbr = knight_neighbor_masks(k, n);
     int V = k*n;
     u64 ALL_MASK = (V == 64 ? ~0ULL : ((1ULL << V) - 1ULL));
     u64 total = 0;
 
-    #pragma omp parallel for reduction(+:total) schedule(dynamic)
-    for (int r = 0; r < k; r++) {
-        for (int c = 0; c < n; c++) {
-            if (!in_fundamental_domain(r, c, k, n)) continue;
-
-            int s = r*n + c;
+    // Rectangular boards: symmetry-reduced needs (D2)
+    if (k != n) {
+        #pragma omp parallel for reduction(+:total) schedule(dynamic)
+        for (int r = 0; r < k; r++) {
+            for (int c = 0; c < n; c++) {
+                if (!in_fundamental_domain(r, c, k, n)) continue;
+                int s = r*n + c;
+                total += dfs(s, (1ULL << s), nbr, ALL_MASK);
+            }
+        }
+    } else {
+        // Square boards: symmetry-reduced needs (D4), not implemented
+        #pragma omp parallel for reduction(+:total) schedule(dynamic)
+        for (int s = 0; s < V; s++) {
             total += dfs(s, (1ULL << s), nbr, ALL_MASK);
         }
+        total /= 2; // undirected paths
     }
-    return total; // symmetry-reduced and canonical
+    return total;
 }
 
-int main() {
+int short_main() {
     int k = 4;
     for (int n = 1; n < 6; n++) {
         u64 c = knight_hamiltonian_paths(k, n);
         cout << "A(" << k << "," << n << ") = " << c << "\n";
     }
+    return 0;
 }
 
+#include <chrono>
+#include <iostream>
+
+void benchmark(int k, int n) {
+    std::cout << "** Benchmarking A(" << k << "," << n << ")...\n";
+
+    auto start = chrono::steady_clock::now();
+    u64 result = knight_hamiltonian_paths(k, n);
+    auto end   = chrono::steady_clock::now();
+
+    double seconds = chrono::duration<double>(end - start).count();
+
+    cout << "A(" << k << "," << n << ") = " << result << "   ";
+    cout << "Time: " << seconds << " seconds\n";
+}
+
+int main() {
+    omp_set_num_threads(8); // Adjust number of threads as needed
+
+    for (int k = 3; k < 7; k++) {
+        for (int n = 1; n < 7; n++) {
+            benchmark(k, n);
+        }
+    }
+}
+
+/*
+A(3,1) = 0     Time: 0.0039868 seconds
+A(3,2) = 0     Time: 0.0006178 seconds
+A(3,3) = 0     Time: 0.000666 seconds
+A(3,4) = 8     Time: 4.06e-05 seconds
+A(3,5) = 0     Time: 0.0001235 seconds
+A(3,6) = 0     Time: 0.0004286 seconds
+A(4,1) = 0     Time: 5.6e-06 seconds
+A(4,2) = 0     Time: 3.9e-06 seconds
+A(4,3) = 8     Time: 3.34e-05 seconds
+A(4,4) = 0     Time: 0.0002841 seconds
+A(4,5) = 82    Time: 0.0050694 seconds
+A(4,6) = 744   Time: 0.0695928 seconds
+A(5,1) = 0     Time: 5.42e-05 seconds
+A(5,2) = 0     Time: 9.4e-06 seconds
+A(5,3) = 0     Time: 0.0001239 seconds
+A(5,4) = 82    Time: 0.0049916 seconds
+A(5,5) = 864   Time: 0.0996175 seconds
+A(5,6) = 18784 Time: 5.20276 seconds
+A(6,1) = 0     Time: 0.0001216 seconds
+A(6,2) = 0     Time: 1e-05 seconds
+A(6,3) = 0     Time: 0.0004186 seconds
+A(6,4) = 744   Time: 0.0654062 seconds
+A(6,5) = 18784 Time: 5.35358 seconds
+A(6,6) = 3318960 Time: 665.61 seconds
+*/
 
 /*
 sudo pacman -Syu
