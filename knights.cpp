@@ -1,3 +1,8 @@
+// knights.cpp
+// Count undirected Hamiltonian knight paths on k x n chessboards.
+// See OEIS A390833.
+// Peter Luschny, December 2025
+
 #include <bits/stdc++.h>
 #include <omp.h>
 using namespace std;
@@ -106,9 +111,12 @@ u64 knight_hamiltonian_paths(int k, int n) {
 }
 
 int main() {
-    int k = 11, n = 3;
-    u64 c = knight_hamiltonian_paths(k, n);
-    cout << "A(" << k << ", " << n << ") = " << c << "\n";
+    int k = 9;
+    // [9]  0, 0, 560, 189688, 264895640, 1770631206422, ...
+    for (int n = 1; n < 5; n++) {
+        u64 c = knight_hamiltonian_paths(k, n);
+        cout << "A(" << k << ", " << n << ") = " << c << "\n";
+    }
     return 0;
 }
 
